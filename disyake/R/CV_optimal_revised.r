@@ -10,20 +10,17 @@ CV_optimal_revised = function(V, h, k)
 
   for (l in 1:length(h))
   {
+    tryCatch(
+      {
     for (j in 1:n1)
     {
-      for (i in 1:n2)
-      {
-        a[j, i] = OptimalKern_revised(x[j], V[i], h[l], k)
-      }
+        a[j, 1:n2] = OptimalKern_revised(x[j], V, h[l], k)
     }
 
     for (j in 1:n2)
     {
-      for (i in 1:n2)
-      {
-        b[j, i] = OptimalKern_revised(V[j], V[i], h[l], k)
-      }
+
+        b[j, 1:n2] = OptimalKern_revised(V[j], V, h[l], k)
     }
 
     res1 <- apply(a, 1, mean)
@@ -31,6 +28,12 @@ CV_optimal_revised = function(V, h, k)
     res2 <- apply(b, 1, sum)
     CV1[l] = sum(res1 ^ 2)
     CV2[l] = (2 / ((n2 - 1) * n2)) * sum(res2)
+      }
+    ,error = function(err) {
+      CV1[l] = NaN
+      CV2[l] = NaN
+    }
+    )
   }
 
   CV = CV1 - CV2

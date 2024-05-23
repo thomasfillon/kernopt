@@ -15,27 +15,14 @@
 #'
 DiscreteEpanech = function(x, z, h)
 {
-  # Initialize kernel values to zeros
-  K = rep(0, length(z))
 
   a = 3 * h / (1 - 4 * h ^ 2)
   b = -a
 
-  for (j in 1:length(z))
-  {
-    if (abs(z[j]-x) <= h)
-      #
-    {
-      K[j] = a * ((x - z[j]) / h) ^ 2 + b
-
-    }
-
-    # zeros value are already set outside the bandwith
-    #else{
-    #  K[j] = 0
-    #}
-
-  }
+  K = ifelse(abs(x - z) <= h,
+             a * ((x - z) / h) ^ 2 + b,
+             0
+         )
 
   return(K)
 }
