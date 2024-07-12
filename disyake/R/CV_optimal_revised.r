@@ -1,3 +1,20 @@
+#' Cross Validation optimal revised
+#'
+#' `CV_optimal_revised` does something.
+#'
+#' @param V A value to return
+#' @param h the list of bandwidth parameters to test in cross validation
+#' @param k
+#'
+#' @return Returns the value of
+#'
+#' @examples
+#'
+#' myfunction(1) # returns 1
+#'
+#' @export
+
+
 CV_optimal_revised = function(V, h, k)
 {
   CV1 <- rep(0, length(h))

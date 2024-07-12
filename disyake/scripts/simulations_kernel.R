@@ -1,18 +1,18 @@
-load_all()
+devtools::load_all()
 #############################################
 # I - Simulations de distributons : unimodal poisson, bimodal poisson, géométrique, négative binomiale
 #############################################
-
+#
 NN = 100
 nn = c(25, 100, 250)#,500)
 
 # (A) - Poisson unimodal
 ########################
 
-#Poisson unimodal
-mu = 2
-x = 0:10
-f = dpois(x, mu)
+# Poisson unimodal
+mu = 2 # Mean
+x = 0:10   # Quantile value
+f = dpois(x, mu)  # Density values for quantile x=0-10
 
 # (1) Optimal kernel
 ######
@@ -68,9 +68,9 @@ for (i in 1:length(nn))
     Fn_opt_k1[j, ] = fn_opt_k1
 
     k = 2
-    H = seq(from = (3 / 5) * (1 - 1 / k) ,
-            to = 1,
-            length.out = 52)[2:51]
+    #H = seq(from = (3 / 5) * (1 - 1 / k) ,
+    #        to = 1,
+    #        length.out = 52)[2:51]
 
     hcv_opt_k2[j, i] <- CV_optimal_revised(y, H, k)
     fn_opt_k2 = Estim_Optim_revised(x, hcv_opt_k2[j, i], y, k)
@@ -78,9 +78,9 @@ for (i in 1:length(nn))
 
 
     k = 3
-    H = seq(from = (3 / 5) * (1 - 1 / k) ,
-            to = 1,
-            length.out = 52)[2:51]
+    #H = seq(from = (3 / 5) * (1 - 1 / k) ,
+    #        to = 1,
+    #        length.out = 52)[2:51]
 
     hcv_opt_k3[j, i] <- CV_optimal_revised(y, H, k)
     fn_opt_k3 = Estim_Optim_revised(x, hcv_opt_k3[j, i], y, k)
@@ -102,7 +102,7 @@ for (i in 1:length(nn))
 
 }
 
-#historgramme normalit? asymptotique pour k=1
+#histogramme normalité asymptotique pour k=1
 u = sqrt(n) * (Fn_opt_k1[, 1] - mean(Fn_opt_k1[, 1]))
 hist(u)
 
@@ -117,3 +117,32 @@ MISE_opt_k2
 B_opt_k3
 V_opt_k3
 MISE_opt_k3
+
+results_B_opt <- data.frame(nb_samples = nn, B_opt_k1, B_opt_k2, B_opt_k3)
+results_V_opt <- data.frame(nb_samples = nn, V_opt_k1, V_opt_k2, V_opt_k3)
+results_MISE_opt = rbind(data.frame(nb_samples = nn, k='1', MISE=MISE_opt_k1),
+                         data.frame(nb_samples = nn, k='2', MISE=MISE_opt_k2),
+                         data.frame(nb_samples = nn, k='3', MISE=MISE_opt_k3))
+
+results_F <- rbind(
+  data.frame(x = x, name='Fn_opt_k1', color_id='1', f=apply(Fn_opt_k1, 2, mean)),
+  data.frame(x = x, name='Fn_opt_k2', color_id='2', f=apply(Fn_opt_k2, 2, mean)),
+  data.frame(x = x, name='Fn_opt_k3', color_id='3', f=apply(Fn_opt_k3, 2, mean)),
+  data.frame(x = x, name='f', f=f, color_id='4')
+)
+
+
+#####
+# Display Results
+#####
+library(ggplot2)
+library(patchwork)
+
+l_plot <- ggplot(results_F, aes(x=x, y=f, color=color_id)) +
+  geom_line() + geom_point(aes(shape=name))
+
+r_plot <- ggplot(results_MISE_opt, aes(x=nb_samples, y=MISE, color=k)) +
+  geom_line() + geom_point(aes(shape=k))
+
+l_plot + r_plot
+
