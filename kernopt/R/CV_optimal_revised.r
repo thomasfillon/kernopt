@@ -4,7 +4,7 @@
 #'
 #' @param V A value to return
 #' @param h the list of bandwidth parameters to test in cross validation
-#' @param k
+#' @param k kernel function
 #'
 #' @return Returns the value of
 #'
