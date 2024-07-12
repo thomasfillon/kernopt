@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(disyake)
+library(kernopt)
 
-test_check("disyake")
+test_check("kernopt")
