@@ -1,5 +1,5 @@
 # Discrete Epanechnikov kernel
-######################
+##############################
 
 #' Title
 #'

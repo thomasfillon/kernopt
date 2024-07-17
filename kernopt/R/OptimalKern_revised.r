@@ -1,5 +1,5 @@
-#' Noyau discret optimal
-########################
+#' Discrete optimal kernel
+##########################
 #'
 #'
 #' @param x the target point at which the density is calculated
