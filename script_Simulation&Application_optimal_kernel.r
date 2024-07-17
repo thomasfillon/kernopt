@@ -5,9 +5,9 @@ path=c("./fonctions_revised/")
 path3=c("./")
 
  #discrete optimal kernel
-source(paste(path,"Estim_Optim_revised.r",sep=""))
-source(paste(path,"OptimalKern_revised.r",sep=""))
-source(paste(path,"CV_optimal_revised.r",sep=""))
+source(paste(path,"Estim_Optim.r",sep=""))
+source(paste(path,"DiscreteOptimal.r",sep=""))
+source(paste(path,"CV_optimal.r",sep=""))
 
 #discrete epanechnikov
 source(paste(path,"Estim_Epanech.r",sep=""))
@@ -47,7 +47,7 @@ h=c(0.2, 0.7,  0.95)
 K_opt=matrix(0,length(z),length(h))
 for (i in 1:length(h))
 {
- K_opt[,i]=OptimalKern_revised(x,z,h[i],k)
+ K_opt[,i]=DiscreteOptimal(x,z,h[i],k)
 }
  plot(z,K_opt[,1],xlab=" ",ylab="Probability",ylim=c(0,1),main ="Optimal (k=1, h) and Epanechnikov (h=1)", pch=1,lwd=2, cex=1.6,cex.axis=1.2,cex.lab=1.2)
  lines(z,K_opt[,1],lty=1,lwd=2)
@@ -89,7 +89,7 @@ h=c(0.5, 0.7, 0.95)
 K_opt=matrix(0,length(z),length(h))
 for (i in 1:length(h))
 {
- K_opt[,i]=OptimalKern_revised(x,z,h[i],k)
+ K_opt[,i]=DiscreteOptimal(x,z,h[i],k)
 }
  plot(z,K_opt[,1],xlab="y",ylab="Probability",ylim=c(0,1),main ="Optimal (k=2, h) and Epanechnikov (h=2)", pch=1,lwd=2, cex=1.6,cex.axis=1.2,cex.lab=1.2)
  lines(z,K_opt[,1],lty=1,lwd=2)
@@ -177,18 +177,18 @@ for (i in 1:length(nn))
 H=seq((max(y)-min(y))/200,(max(y)-min(y))/2, length.out=50)
 
 k=1
-hcv_opt_k1[j,i]<-CV_optimal_revised(y,H,k)
+hcv_opt_k1[j,i]<-CV_optimal(y,H,k)
 fn_opt_k1=Estim_Optim_revised(x,hcv_opt_k1[j,i],y,k)
 Fn_opt_k1[j,]=fn_opt_k1
 
 k=2
-hcv_opt_k2[j,i]<-CV_optimal_revised(y,H,k)
+hcv_opt_k2[j,i]<-CV_optimal(y,H,k)
 fn_opt_k2=Estim_Optim_revised(x,hcv_opt_k2[j,i],y,k)
 Fn_opt_k2[j,]=fn_opt_k2
 
 
 k=3
-hcv_opt_k3[j,i]<-CV_optimal_revised(y,H,k)
+hcv_opt_k3[j,i]<-CV_optimal(y,H,k)
 fn_opt_k3=Estim_Optim_revised(x,hcv_opt_k3[j,i],y,k)
 Fn_opt_k3[j,]=fn_opt_k3
 
@@ -426,18 +426,18 @@ y=sort(rgeom(n,p1))
  
 H=seq((max(y)-min(y))/200,(max(y)-min(y))/2, length.out=50)
 k=1
-hcv_opt_k1[j,i]<-CV_optimal_revised(y,H,k)
+hcv_opt_k1[j,i]<-CV_optimal(y,H,k)
 fn_opt_k1=Estim_Optim_revised(x,hcv_opt_k1[j,i],y,k)
 Fn_opt_k1[j,]=fn_opt_k1
 
 k=2
-hcv_opt_k2[j,i]<-CV_optimal_revised(y,H,k)
+hcv_opt_k2[j,i]<-CV_optimal(y,H,k)
 fn_opt_k2=Estim_Optim_revised(x,hcv_opt_k2[j,i],y,k)
 Fn_opt_k2[j,]=fn_opt_k2
 #
 
 k=3
-hcv_opt_k3[j,i]<-CV_optimal_revised(y,H,k)
+hcv_opt_k3[j,i]<-CV_optimal(y,H,k)
 fn_opt_k3=Estim_Optim_revised(x,hcv_opt_k3[j,i],y,k)
 Fn_opt_k3[j,]=fn_opt_k3
 
@@ -684,18 +684,18 @@ data=data.frame(table(y))
  H=seq((max(y)-min(y))/200,(max(y)-min(y))/2, length.out=50)
  
 k=1
-hcv_opt_k1[j,i]<-CV_optimal_revised(y,H,k)
+hcv_opt_k1[j,i]<-CV_optimal(y,H,k)
 fn_opt_k1=Estim_Optim_revised(x,hcv_opt_k1[j,i],y,k)
 Fn_opt_k1[j,]=fn_opt_k1
 
 k=2
-hcv_opt_k2[j,i]<-CV_optimal_revised(y,H,k)
+hcv_opt_k2[j,i]<-CV_optimal(y,H,k)
 fn_opt_k2=Estim_Optim_revised(x,hcv_opt_k2[j,i],y,k)
 Fn_opt_k2[j,]=fn_opt_k2
 #
 
 k=3
-hcv_opt_k3[j,i]<-CV_optimal_revised(y,H,k)
+hcv_opt_k3[j,i]<-CV_optimal(y,H,k)
 fn_opt_k3=Estim_Optim_revised(x,hcv_opt_k3[j,i],y,k)
 Fn_opt_k3[j,]=fn_opt_k3
 
@@ -943,17 +943,17 @@ ISE_triang_p3<-sum((fn_triang_p3 - f0)^2)
 #discrete opt
 H=seq((max(y)-min(y))/200,(max(y)-min(y))/2, length.out=50)
 k=1
-hcv_opt_k1<-CV_optimal_revised(y,H,k=1)
+hcv_opt_k1<-CV_optimal(y,H,k=1)
 fn_opt_k1<-Estim_Optim_revised(x,hcv_opt_k1,y,k=1)
 ISE_opt_k1<-sum((fn_opt_k1 - f0)^2)
  
 k=2
-hcv_opt_k2<-CV_optimal_revised(y,H,k=2)
+hcv_opt_k2<-CV_optimal(y,H,k=2)
 fn_opt_k2<-Estim_Optim_revised(x,hcv_opt_k2,y,k=2)
 ISE_opt_k2<-sum((fn_opt_k2 - f0)^2)
 
 k=3
-hcv_opt_k3<-CV_optimal_revised(y,H,k=3)
+hcv_opt_k3<-CV_optimal(y,H,k=3)
 fn_opt_k3<-Estim_Optim_revised(x,hcv_opt_k3,y,k=3)
 ISE_opt_k3<-sum((fn_opt_k3 - f0)^2)
 
