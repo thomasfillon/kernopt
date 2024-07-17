@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-OptimalKern_revised = function(x, z, h, k)
+DiscreteOptimal = function(x, z, h, k)
 {
   # Return a error if h does not match the condition (3 / 5) * (1 - 1 / k)) < h < 1
   stopifnot((h > (3 / 5) * (1 - 1 / k)), (h < 1))

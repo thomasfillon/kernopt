@@ -15,7 +15,7 @@
 #' @export
 
 
-CV_optimal_revised = function(V, h, k)
+CV_optimal = function(V, h, k)
 {
   CV1 <- rep(0, length(h))
   CV2 <- rep(0, length(h))
@@ -31,13 +31,13 @@ CV_optimal_revised = function(V, h, k)
       {
     for (j in 1:n1)
     {
-        a[j, 1:n2] = OptimalKern_revised(x[j], V, h[l], k)
+        a[j, 1:n2] = DiscreteOptimal(x[j], V, h[l], k)
     }
 
     for (j in 1:n2)
     {
 
-        b[j, 1:n2] = OptimalKern_revised(V[j], V, h[l], k)
+        b[j, 1:n2] = DiscreteOptimal(V[j], V, h[l], k)
     }
 
     res1 <- apply(a, 1, mean)
