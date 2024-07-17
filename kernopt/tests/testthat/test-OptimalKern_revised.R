@@ -5,13 +5,13 @@
 # Check Discrete kernel Property
 
 test_that("Function return error if h ", {
-  expect_error(OptimalKern_revised(
+  expect_error(DiscreteOptimal(
     x = 50,
     z = 1:100,
     h = 0.1,  # h < (3/5) * (1 - 1/k)) = 0.54
     k = 10
   ))
-  expect_error(OptimalKern_revised(
+  expect_error(DiscreteOptimal(
     x = 50,
     z = 1:100,
     h = 2,  # h > 1
@@ -21,20 +21,20 @@ test_that("Function return error if h ", {
 
 
 test_that("Kernel is null outside support", {
-  expect_equal(OptimalKern_revised(
+  expect_equal(DiscreteOptimal(
     x = 50,
     z = 1:100,
     h = 0.6,
     k = 10
   )[1:39],
   rep(0, 39))
-  expect_true(all(OptimalKern_revised(
+  expect_true(all(DiscreteOptimal(
     x = 50,
     z = 1:100,
     h = 0.6,
     k = 10
   )[40:60]>0))
-  expect_equal(OptimalKern_revised(
+  expect_equal(DiscreteOptimal(
     x = 50,
     z = 1:100,
     h = 0.6,
@@ -44,7 +44,7 @@ test_that("Kernel is null outside support", {
 })
 
 test_that("Kernel sum to 1", {
-  expect_equal(sum(OptimalKern_revised(
+  expect_equal(sum(DiscreteOptimal(
     x = 50,
     z = 1:100,
     h = 0.8,
