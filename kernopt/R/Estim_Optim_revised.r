@@ -1,7 +1,7 @@
 # ESTIMATEUR DISCRET OPTIMAL
 ############################
 
-Estim_Optim_revised = function(x , h , V, k)
+Estim_Optim = function(x , h , V, k)
 {
   K <- 0
 
@@ -14,7 +14,7 @@ Estim_Optim_revised = function(x , h , V, k)
     # boucle en i pour chaque point x où est fait l'estimation
 
   {
-    K = OptimalKern_revised(x[i], V, h, k)
+    K = DiscreteOptimal(x[i], V, h, k)
     w[i] = (1 / n) * sum(K)
   }
 
