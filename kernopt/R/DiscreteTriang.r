@@ -1,5 +1,5 @@
-#NOYAU discret triangulaire
-######################
+#Discrete triangular kernel
+###########################
 #'
 #' @param x the target point at which the density is calculated
 #' @param z the vector of observations
