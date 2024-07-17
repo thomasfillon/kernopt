@@ -7,7 +7,7 @@
 #' @param z the vector of observations
 #' @param h the bandwidth (or smoothing parameter), defined as a positive integer
 #'
-#' @return Returns the value of the associated kernel function at t according to the target and the bandwidth.
+#' @return Returns the value of the associated kernel function according to the target x and the bandwidth h.
 #' @export
 #'
 #' @examples
