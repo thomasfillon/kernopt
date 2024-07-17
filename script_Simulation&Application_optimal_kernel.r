@@ -178,18 +178,18 @@ H=seq((max(y)-min(y))/200,(max(y)-min(y))/2, length.out=50)
 
 k=1
 hcv_opt_k1[j,i]<-CV_optimal(y,H,k)
-fn_opt_k1=Estim_Optim_revised(x,hcv_opt_k1[j,i],y,k)
+fn_opt_k1=Estim_Optim(x,hcv_opt_k1[j,i],y,k)
 Fn_opt_k1[j,]=fn_opt_k1
 
 k=2
 hcv_opt_k2[j,i]<-CV_optimal(y,H,k)
-fn_opt_k2=Estim_Optim_revised(x,hcv_opt_k2[j,i],y,k)
+fn_opt_k2=Estim_Optim(x,hcv_opt_k2[j,i],y,k)
 Fn_opt_k2[j,]=fn_opt_k2
 
 
 k=3
 hcv_opt_k3[j,i]<-CV_optimal(y,H,k)
-fn_opt_k3=Estim_Optim_revised(x,hcv_opt_k3[j,i],y,k)
+fn_opt_k3=Estim_Optim(x,hcv_opt_k3[j,i],y,k)
 Fn_opt_k3[j,]=fn_opt_k3
 
 
@@ -427,18 +427,18 @@ y=sort(rgeom(n,p1))
 H=seq((max(y)-min(y))/200,(max(y)-min(y))/2, length.out=50)
 k=1
 hcv_opt_k1[j,i]<-CV_optimal(y,H,k)
-fn_opt_k1=Estim_Optim_revised(x,hcv_opt_k1[j,i],y,k)
+fn_opt_k1=Estim_Optim(x,hcv_opt_k1[j,i],y,k)
 Fn_opt_k1[j,]=fn_opt_k1
 
 k=2
 hcv_opt_k2[j,i]<-CV_optimal(y,H,k)
-fn_opt_k2=Estim_Optim_revised(x,hcv_opt_k2[j,i],y,k)
+fn_opt_k2=Estim_Optim(x,hcv_opt_k2[j,i],y,k)
 Fn_opt_k2[j,]=fn_opt_k2
 #
 
 k=3
 hcv_opt_k3[j,i]<-CV_optimal(y,H,k)
-fn_opt_k3=Estim_Optim_revised(x,hcv_opt_k3[j,i],y,k)
+fn_opt_k3=Estim_Optim(x,hcv_opt_k3[j,i],y,k)
 Fn_opt_k3[j,]=fn_opt_k3
 
 
@@ -685,18 +685,18 @@ data=data.frame(table(y))
  
 k=1
 hcv_opt_k1[j,i]<-CV_optimal(y,H,k)
-fn_opt_k1=Estim_Optim_revised(x,hcv_opt_k1[j,i],y,k)
+fn_opt_k1=Estim_Optim(x,hcv_opt_k1[j,i],y,k)
 Fn_opt_k1[j,]=fn_opt_k1
 
 k=2
 hcv_opt_k2[j,i]<-CV_optimal(y,H,k)
-fn_opt_k2=Estim_Optim_revised(x,hcv_opt_k2[j,i],y,k)
+fn_opt_k2=Estim_Optim(x,hcv_opt_k2[j,i],y,k)
 Fn_opt_k2[j,]=fn_opt_k2
 #
 
 k=3
 hcv_opt_k3[j,i]<-CV_optimal(y,H,k)
-fn_opt_k3=Estim_Optim_revised(x,hcv_opt_k3[j,i],y,k)
+fn_opt_k3=Estim_Optim(x,hcv_opt_k3[j,i],y,k)
 Fn_opt_k3[j,]=fn_opt_k3
 
 
@@ -944,17 +944,17 @@ ISE_triang_p3<-sum((fn_triang_p3 - f0)^2)
 H=seq((max(y)-min(y))/200,(max(y)-min(y))/2, length.out=50)
 k=1
 hcv_opt_k1<-CV_optimal(y,H,k=1)
-fn_opt_k1<-Estim_Optim_revised(x,hcv_opt_k1,y,k=1)
+fn_opt_k1<-Estim_Optim(x,hcv_opt_k1,y,k=1)
 ISE_opt_k1<-sum((fn_opt_k1 - f0)^2)
  
 k=2
 hcv_opt_k2<-CV_optimal(y,H,k=2)
-fn_opt_k2<-Estim_Optim_revised(x,hcv_opt_k2,y,k=2)
+fn_opt_k2<-Estim_Optim(x,hcv_opt_k2,y,k=2)
 ISE_opt_k2<-sum((fn_opt_k2 - f0)^2)
 
 k=3
 hcv_opt_k3<-CV_optimal(y,H,k=3)
-fn_opt_k3<-Estim_Optim_revised(x,hcv_opt_k3,y,k=3)
+fn_opt_k3<-Estim_Optim(x,hcv_opt_k3,y,k=3)
 ISE_opt_k3<-sum((fn_opt_k3 - f0)^2)
 
 # Epanech
