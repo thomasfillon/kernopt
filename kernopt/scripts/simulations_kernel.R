@@ -63,8 +63,8 @@ for (i in 1:length(nn))
               50)
 
 
-    hcv_opt_k1[j, i] <- CV_optimal_revised(y, H, k)
-    fn_opt_k1 = Estim_Optim_revised(x, hcv_opt_k1[j, i], y, k)
+    hcv_opt_k1[j, i] <- CV_optimal(y, H, k)
+    fn_opt_k1 = Estim_Optim(x, hcv_opt_k1[j, i], y, k)
     Fn_opt_k1[j, ] = fn_opt_k1
 
     k = 2
@@ -72,8 +72,8 @@ for (i in 1:length(nn))
     #        to = 1,
     #        length.out = 52)[2:51]
 
-    hcv_opt_k2[j, i] <- CV_optimal_revised(y, H, k)
-    fn_opt_k2 = Estim_Optim_revised(x, hcv_opt_k2[j, i], y, k)
+    hcv_opt_k2[j, i] <- CV_optimal(y, H, k)
+    fn_opt_k2 = Estim_Optim(x, hcv_opt_k2[j, i], y, k)
     Fn_opt_k2[j, ] = fn_opt_k2
 
 
@@ -82,8 +82,8 @@ for (i in 1:length(nn))
     #        to = 1,
     #        length.out = 52)[2:51]
 
-    hcv_opt_k3[j, i] <- CV_optimal_revised(y, H, k)
-    fn_opt_k3 = Estim_Optim_revised(x, hcv_opt_k3[j, i], y, k)
+    hcv_opt_k3[j, i] <- CV_optimal(y, H, k)
+    fn_opt_k3 = Estim_Optim(x, hcv_opt_k3[j, i], y, k)
     Fn_opt_k3[j, ] = fn_opt_k3
 
 
