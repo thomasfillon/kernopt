@@ -27,7 +27,7 @@ h = c(0.2, 0.7,  0.95)
 K_opt = matrix(0, length(z), length(h))
 for (i in 1:length(h))
 {
-  K_opt[, i] = OptimalKern_revised(x, z, h[i], k)
+  K_opt[, i] = DiscreteOptimal(x, z, h[i], k)
 }
 
 #-------------------------
@@ -181,7 +181,7 @@ h = c(0.5, 0.7, 0.95)
 K_opt = matrix(0, length(z), length(h))
 for (i in 1:length(h))
 {
-  K_opt[, i] = OptimalKern_revised(x, z, h[i], k)
+  K_opt[, i] = DiscreteOptimal(x, z, h[i], k)
 }
 
 
