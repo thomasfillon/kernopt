@@ -3,9 +3,9 @@
 
 #' Title
 #'
-#' @param x
-#' @param z vector of observations
-#' @param h kernel bandwidth (or smoothing parameter) is defined as a positive integer
+#' @param x the target point
+#' @param z the vector of observations
+#' @param h the bandwidth (or smoothing parameter), defined as a positive integer
 #'
 #' @return Returns the value of the associated kernel function at t according to the target and the bandwidth.
 #' @export
