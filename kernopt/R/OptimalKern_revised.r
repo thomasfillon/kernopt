@@ -1,5 +1,12 @@
 #' Optimal discrete kernel
 #'
+#'
+#' @param x the target point at which the density is calculated
+#' @param z the vector of observations
+#' @param h the bandwidth (or smoothing parameter)
+#' @param a the integer (positive) parameter that defined the support of the kernel function
+#' @return Returns the value of the associated kernel function according to the target x and the bandwidth h.
+
 #' @param x
 #' @param z
 #' @param h : bandwidth . It should match the condition (3 / 5) * (1 - 1 / k)) < h < 1

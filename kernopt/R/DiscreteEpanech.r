@@ -3,10 +3,10 @@
 
 #' Title
 #'
-#' @param x the target point
+#' @param x the target point at which the density is calculated
 #' @param z the vector of observations
-#' @param h the bandwidth (or smoothing parameter), defined as a positive integer
-#'
+#' @param h the bandwidth (or smoothing parameter)
+#' @param k the integer (positive) parameter that defined the support of the kernel function
 #' @return Returns the value of the associated kernel function according to the target x and the bandwidth h.
 #' @export
 #'
