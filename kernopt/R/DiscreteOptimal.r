@@ -10,6 +10,8 @@
 #' @export
 #'
 #' @examples
+#' DiscreteOptimal(x = 50, z = 1:100, h = 0.6, k = 10)
+#'
 DiscreteOptimal = function(x, z, h, k)
 {
   # Return a error if h does not match the condition (3 / 5) * (1 - 1 / k)) < h < 1

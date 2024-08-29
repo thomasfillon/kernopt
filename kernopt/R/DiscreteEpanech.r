@@ -6,12 +6,12 @@
 #' @param x the target point at which the density is calculated
 #' @param z the vector of observations
 #' @param h the bandwidth (or smoothing parameter)
-#' @param k the integer (positive) parameter that defined the support of the kernel function
 #' @return Returns the value of the associated kernel function according to the target x and the bandwidth h.
 #' @export
 #'
 #' @examples
-#'
+#' # basic usage of DiscreteEpanech to compute a discrete Epanechnikov kernel
+#' DiscreteEpanech(x = 50, z = 1:100, h = 10)
 #'
 DiscreteEpanech = function(x, z, h)
 {

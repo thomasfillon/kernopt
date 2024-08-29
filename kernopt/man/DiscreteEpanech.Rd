@@ -7,13 +7,20 @@
 DiscreteEpanech(x, z, h)
 }
 \arguments{
-\item{z}{vector of observations}
+\item{x}{the target point at which the density is calculated}
 
-\item{h}{kernel bandwidth (or smoothing parameter) is defined as a positive integer}
+\item{z}{the vector of observations}
+
+\item{h}{the bandwidth (or smoothing parameter)}
 }
 \value{
-Returns the value of the associated kernel function at t according to the target and the bandwidth.
+Returns the value of the associated kernel function according to the target x and the bandwidth h.
 }
 \description{
 Title
+}
+\examples{
+# basic usage of DiscreteEpanech to compute a discrete Epanechnikov kernel
+DiscreteEpanech(x = 50, z = 1:100, h = 10)
+
 }

@@ -1,4 +1,4 @@
-#Discrete triangular kernel
+#' Discrete triangular kernel
 ###########################
 #'
 #' @param x the target point at which the density is calculated
@@ -9,7 +9,8 @@
 #' @export
 #'
 #' @examples
-#'
+#' # basic usage of DiscreteTriang to compute a Discrete triangular kernel
+#' DiscreteTriang(x = 50, z = 1:100, h = 10, a = 5)
 #'
 
 DiscreteTriang = function(x, z, h, a)

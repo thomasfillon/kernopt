@@ -10,7 +10,7 @@
 #'
 #' @examples
 #'
-#' myfunction(1) # returns 1
+#' #myfunction(1) # returns 1
 #'
 #' @export
 
