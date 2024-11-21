@@ -13,7 +13,7 @@ K_epan = matrix(data = 0,
 
 for (i in 1:length(h))
 {
-  K_epan[, i] = DiscreteEpanech(x, z, h[i])
+  K_epan[, i] = discrete_epanech(x, z, h[i])
 }
 
 
@@ -27,7 +27,7 @@ h = c(0.2, 0.7,  0.95)
 K_opt = matrix(0, length(z), length(h))
 for (i in 1:length(h))
 {
-  K_opt[, i] = DiscreteOptimal(x, z, h[i], k)
+  K_opt[, i] = discrete_optimal(x, z, h[i], k)
 }
 
 #-------------------------
@@ -36,7 +36,7 @@ for (i in 1:length(h))
 graphics.off()
 par(mfrow = c(2, 2)) # 2 x 2 pictures on one plot
 
-# 1,1 - Optimal (k=1, h) and Epanechnikov (h=1)
+# 1,1 - Optimal (k=1, h) and Epanechnikov (h=1)
 plot(
   x = z,
   y = K_opt[, 1],
@@ -181,7 +181,7 @@ h = c(0.5, 0.7, 0.95)
 K_opt = matrix(0, length(z), length(h))
 for (i in 1:length(h))
 {
-  K_opt[, i] = DiscreteOptimal(x, z, h[i], k)
+  K_opt[, i] = discrete_optimal(x, z, h[i], k)
 }
 
 

@@ -1,17 +1,14 @@
-
-
-
 # Check Discrete kernel Property
 
 
 test_that("Kernel is null outside support", {
-  expect_equal(DiscreteTriang(
+  expect_equal(discrete_triang(
     x = 50,
     z = 1:100,
     h = 10,
     a = 5
   )[1:44], rep(0, 44))
-  expect_equal(DiscreteTriang(
+  expect_equal(discrete_triang(
     x = 50,
     z = 1:100,
     h = 10,
@@ -20,7 +17,7 @@ test_that("Kernel is null outside support", {
 })
 
 test_that("Kernel sum to 1", {
-  expect_equal(sum(DiscreteTriang(
+  expect_equal(sum(discrete_triang(
     x = 50,
     z = 1:100,
     h = 10,
@@ -31,7 +28,7 @@ test_that("Kernel sum to 1", {
 # Check Kernel values
 test_that("Kernel values are correct", {
   expect_equal(
-    DiscreteTriang(5, 1:10, 3, 2),
+    discrete_triang(5, 1:10, 3, 2),
     c(
       0,
       0,
@@ -47,7 +44,7 @@ test_that("Kernel values are correct", {
     tolerance = 1e-6
   )
   expect_equal(
-    DiscreteTriang(5, 1:10, 3, 5),
+    discrete_triang(5, 1:10, 3, 5),
     c(
       0.07892004,
       0.09813084,
@@ -63,7 +60,7 @@ test_that("Kernel values are correct", {
     tolerance = 1e-6
   )
   expect_equal(
-    DiscreteTriang(5,1:10,3,0),
+    discrete_triang(5, 1:10, 3, 0),
     c(0, 0, 0, 0, 1, 0, 0, 0, 0, 0)
   )
 })
