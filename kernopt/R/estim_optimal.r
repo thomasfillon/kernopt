@@ -1,5 +1,16 @@
-# Estimator with discrete optimal kernel
-########################################
+#' Estimator for discrete optimal kernel
+#'
+#' @param x the target point at which the density is calculated.
+#' @param h the bandwidth (or smoothing parameter), which should match the
+#'          condition (3 / 5) * (1 - 1 / k)) < h < 1
+#' @param v ???
+#' @param k the integer (positive) parameter that defined the support of
+#'          the kernel function
+#'
+#' @returns  The estimated optimal kernel
+#'
+#' @export
+
 
 estim_optimal <- function(x, h, v, k) {
   kernel_opt <- 0 # kernel function initialized at 0

@@ -5,7 +5,7 @@ load_all()
 #epanech
 z = 0:10  # Observations (?)
 x = 5 # Target
-h = c(1, 2, 3, 4)  # Set of Bandwidths
+h = c(1, 2, 3, 4)  # Set of Bandwidths
 
 K_epan = matrix(data = 0,
                 nrow = length(z),
@@ -112,7 +112,7 @@ h = c(0.2, 0.7, 0.95)
 K_trg = matrix(0, length(z), length(h))
 for (i in 1:length(h))
 {
-  K_trg[, i] = DiscreteTriang(x, z, h[i], a)
+  K_trg[, i] = discrete_triang(x, z, h[i], a)
 }
 
 plot(
@@ -250,7 +250,7 @@ h = c(0.5, 0.7,  0.95)
 K_trg = matrix(0, length(z), length(h))
 for (i in 1:length(h))
 {
-  K_trg[, i] = DiscreteTriang(x, z, h[i], a)
+  K_trg[, i] = discrete_triang(x, z, h[i], a)
 }
 
 

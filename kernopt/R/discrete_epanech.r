@@ -1,7 +1,4 @@
-# Discrete Epanechnikov kernel
-##############################
-
-#' Title
+#' Discrete Epanechnikov kernel
 #'
 #' @param x the target point at which the density is calculated
 #' @param z the vector of observations

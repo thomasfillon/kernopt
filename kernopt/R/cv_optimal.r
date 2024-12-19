@@ -1,4 +1,4 @@
-#' Cross Validation optimal revised
+#' Cross Validation optimal
 #'
 #' `cv_optimal` does something.
 #'
@@ -6,13 +6,16 @@
 #' @param h the list of bandwidth parameters to test in cross validation
 #' @param k kernel function
 #'
-#' @return Returns the value of
-#'
+#' @return Returns the optimal bandwith value
+#'#'
 #' @examples
 #'
 #' # myfunction(1) # returns 1
 #'
 #' @export
+#'
+
+
 
 
 cv_optimal <- function(v, h, k) {
