@@ -33,7 +33,7 @@ for (i in 1:length(h))
 #-------------------------
 # Graph
 # ------------------------
-graphics.off()
+#graphics.off()
 par(mfrow = c(2, 2)) # 2 x 2 pictures on one plot
 
 # 1,1 - Optimal (k=1, h) and Epanechnikov (h=1)

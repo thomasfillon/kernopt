@@ -1,5 +1,5 @@
 Package: kernopt
-Title: What the Package Does (One Line, Title Case)
+Title:  A Package for Estimating Count Data Distributions with Discrete Optimal Symmetric Kernel
 Version: 0.0.0.9000
 Authors@R: 
     c(person(given = "Tristan",
