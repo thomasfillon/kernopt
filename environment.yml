@@ -1,9 +1,0 @@
-name: /home/tfillon/Codes/LMBA/R_kernOpt/.env
-channels:
-  - defaults
-  - conda-forge
-dependencies:
-  - r-base
-  - r-essentials
-  - jupyter
-prefix: /home/tfillon/Codes/LMBA/R_kernOpt/.env
