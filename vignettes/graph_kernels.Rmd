@@ -1,11 +1,14 @@
 ---
-title: "graph_kernels"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{graph_kernels}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
+
+# ---
+
+title: "graph_kernels" output: rmarkdown::html_vignette vignette: \>
+%\VignetteIndexEntry{graph_kernels} %\VignetteEngine{knitr::rmarkdown}
+%\VignetteEncoding{UTF-8} ---
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -16,12 +19,13 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(kernopt)
-library(ggplot2)
 ```
 
 ## Introduction
-This vignette illustrates some functions provided by the *kernopt* R package that implements discrete symmetric kernels, which wererecently developed for modeling count data distributions.
 
+This vignette illustrates some functions provided by the *kernopt* R
+package that implements discrete symmetric kernels, which were recently
+developed for modeling count data distributions.
 
 ```{r}
 
@@ -56,7 +60,7 @@ for (i in 1:length(h))
 }
 
 # 1,1 - Optimal (k=1, h) and Epanechnikov (h=1)
-ggplot(
+plot(
   x = z,
   y = K_opt[, 1],
   xlab = "z",
@@ -407,4 +411,3 @@ legend(
 )
 
 ```
-
