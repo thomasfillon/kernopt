@@ -67,4 +67,7 @@ barW <- 0.5
 plot(count_values, count_f0)
 rect(xleft=count_values-barW, ybottom=0, xright=count_values+barW, ytop=count_f0, col=gray(0.5))
 
+plot(count_values, count_f0)
+rect(xleft=count_values-barW, ybottom=0, xright=count_values+barW, ytop=count_f0, col=gray(0.5))
+
 ```
