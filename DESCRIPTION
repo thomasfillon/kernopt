@@ -1,5 +1,5 @@
 Package: kernopt
-Title:  A Package for Estimating Count Data Distributions with Discrete Optimal Symmetric Kernel
+Title: A Package for Estimating Count Data Distributions with Discrete Optimal Symmetric Kernel
 Version: 0.0.0.9000
 Authors@R: 
     c(person(given = "Tristan",
@@ -29,3 +29,6 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 VignetteBuilder: knitr
+Depends: 
+    R (>= 2.10)
+LazyData: true

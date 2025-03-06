@@ -28,35 +28,36 @@ package that implements discrete symmetric kernels, which were recently
 developed for modeling count data distributions.
 
 ```{r}
-
 ### COMPARISON GRAPH OF SYMMETRIC KERNELS
 
-#epanech
-z = 0:10  # Observations (?)
-x = 5 # Target
-h = c(1, 2, 3, 4)  # Set of Bandwidths
+# epanech
+z <- 0:10 # Observations (?)
+x <- 5 # Target
+h <- c(1, 2, 3, 4) # Set of Bandwidths
 
-K_epan = matrix(data = 0,
-                nrow = length(z),
-                ncol = length(h))
+K_epan <- matrix(
+  data = 0,
+  nrow = length(z),
+  ncol = length(h)
+)
 
 for (i in 1:length(h))
 {
-  K_epan[, i] = discrete_epanech(x, z, h[i])
+  K_epan[, i] <- discrete_epanech(x, z, h[i])
 }
 
 
 
 # p=k=1
-#opt
-z = 0:10
-x = 5
-k = 1
-h = c(0.2, 0.7,  0.95)
-K_opt = matrix(0, length(z), length(h))
+# opt
+z <- 0:10
+x <- 5
+k <- 1
+h <- c(0.2, 0.7, 0.95)
+K_opt <- matrix(0, length(z), length(h))
 for (i in 1:length(h))
 {
-  K_opt[, i] = discrete_optimal(x, z, h[i], k)
+  K_opt[, i] <- discrete_optimal(x, z, h[i], k)
 }
 
 # 1,1 - Optimal (k=1, h) and Epanechnikov (h=1)
@@ -125,14 +126,13 @@ legend(
   lwd = c(2, 2, 2, 2),
   cex = 1.2
 )
-
 ```
 
 ```{r}
 #-------------------------
 # Graph
 # ------------------------
-#graphics.off()
+# graphics.off()
 dev.off()
 par(mfrow = c(2, 2)) # 2 x 2 pictures on one plot
 
@@ -205,14 +205,14 @@ legend(
 
 
 # Triangular (a=1, h) and Epanechnikov (h=1)
-z = 0:10
-x = 5
-a = 1
-h = c(0.2, 0.7, 0.95)
-K_trg = matrix(0, length(z), length(h))
+z <- 0:10
+x <- 5
+a <- 1
+h <- c(0.2, 0.7, 0.95)
+K_trg <- matrix(0, length(z), length(h))
 for (i in 1:length(h))
 {
-  K_trg[, i] = discrete_triang(x, z, h[i], a)
+  K_trg[, i] <- discrete_triang(x, z, h[i], a)
 }
 
 plot(
@@ -271,17 +271,17 @@ legend(
   cex = 1.2
 )
 
-# Optimal (k=2, h) and Epanechnikov (h=2)
+#  Optimal (k=2, h) and Epanechnikov (h=2)
 # p=k=2
-#opt
-z = 0:10
-x = 5
-k = 2
-h = c(0.5, 0.7, 0.95)
-K_opt = matrix(0, length(z), length(h))
+# opt
+z <- 0:10
+x <- 5
+k <- 2
+h <- c(0.5, 0.7, 0.95)
+K_opt <- matrix(0, length(z), length(h))
 for (i in 1:length(h))
 {
-  K_opt[, i] = discrete_optimal(x, z, h[i], k)
+  K_opt[, i] <- discrete_optimal(x, z, h[i], k)
 }
 
 
@@ -323,7 +323,7 @@ lines(
 lines(
   z,
   K_epan[, 2],
-  type ="o",
+  type = "o",
   pch = 4,
   lty = 4,
   lwd = 2,
@@ -342,15 +342,15 @@ legend(
 )
 
 # Triangular (a=2, h) and Epanechnikov (h=2)
-#triangular
-z = 0:10
-x = 5
-a = 2
-h = c(0.5, 0.7,  0.95)
-K_trg = matrix(0, length(z), length(h))
+# triangular
+z <- 0:10
+x <- 5
+a <- 2
+h <- c(0.5, 0.7, 0.95)
+K_trg <- matrix(0, length(z), length(h))
 for (i in 1:length(h))
 {
-  K_trg[, i] = discrete_triang(x, z, h[i], a)
+  K_trg[, i] <- discrete_triang(x, z, h[i], a)
 }
 
 
@@ -383,7 +383,7 @@ lines(
 lines(
   z,
   K_trg[, 3],
-  type ="o",
+  type = "o",
   pch = 3,
   lty = 3,
   lwd = 2
@@ -409,5 +409,4 @@ legend(
   lwd = c(2, 2, 2, 2),
   cex = 1.2
 )
-
 ```

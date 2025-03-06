@@ -1,6 +1,3 @@
-
-
-
 # Check Discrete kernel Property
 
 
@@ -50,6 +47,8 @@ test_that("Kernel values are correct", {
     ),
     tolerance = 1e-6
   )
-  expect_equal(discrete_epanech(x = 5, z = 1:10, h = 1),
-               c(0, 0, 0, 0, 1, 0, 0, 0, 0, 0))
+  expect_equal(
+    discrete_epanech(x = 5, z = 1:10, h = 1),
+    c(0, 0, 0, 0, 1, 0, 0, 0, 0, 0)
+  )
 })

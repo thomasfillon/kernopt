@@ -16,7 +16,7 @@
 #' discrete_optimal(x = 50, z = 1:100, h = 0.6, k = 10)
 #'
 discrete_optimal <- function(x, z, h, k) {
-  # Return a error if h does not match the following condition:
+  # Return an error if h does not match the following condition:
   # (3 / 5) * (1 - 1 / k)) < h < 1
   stopifnot((h > (3 / 5) * (1 - 1 / k)), (h < 1))
 
