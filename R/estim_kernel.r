@@ -1,16 +1,22 @@
+
+
+
 #' Estimator for discrete optimal kernel
 #'
-#' @param x the target point at which the density is calculated.
-#' @param h the bandwidth (or smoothing parameter), which should match the
-#'          condition (3 / 5) * (1 - 1 / k)) < h < 1
-#' @param v ???
-#' @param k the integer (positive) parameter that defined the support of
-#'          the kernel function
+#' @param kernel the type of kernel. Currently supported kernels are limited to:
+#'   "optimal", "triang" and "epanech"
+#' @param x the list of target points at which the density is calculated  TODO : à valider
+#' @param h the bandwidth (or smoothing parameter)
+#' @param v the vector of observations TODO : Renommer "z" ???
+#' @param k Optional: the integer (positive) parameter that defined the support
+#'   of the kernel function (corresponds to parameter 'a' for triangular
+#'   kernel). It is only used for optimal and triangular kernel
 #'
-#' @returns  The estimated optimal kernel
-#'
+#' @return  The estimated kernel
 #' @export
-
+#'
+#' @examples
+#' fn_opt_k <- estim_kernel(kernel=kernel, x=count_values, h=hcv, v=fish_weights, k=k)
 
 estim_kernel <- function(kernel=c("optimal","triang","epanech"), x, h, v, k=NULL) {
   kernel_opt <- 0 # kernel function initialized at 0

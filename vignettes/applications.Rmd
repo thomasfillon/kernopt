@@ -63,12 +63,6 @@ ISE_opt_k <-sum((fn_opt_k - count_f0)^2)
 print(sprintf("kernel: %s -> hcv = %f - ISE = %f", kernel, hcv, ISE_opt_k) )
 
 
-k=3
-hcv_opt_k1<-cv_bandwidth(kernel="optimal",fish_weights,H,k=k)
-hcv_opt_k1
-fn_opt_k1<-estim_optimal(count_values,hcv_opt_k1,fish_weights,k=k)
-ISE_opt_k1<-sum((fn_opt_k1 - count_f0)^2)
-ISE_opt_k1
 barW <- 0.5
 plot(count_values, count_f0)
 rect(xleft=count_values-barW, ybottom=0, xright=count_values+barW, ytop=count_f0, col=gray(0.5))
