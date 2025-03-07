@@ -35,7 +35,3 @@ discrete_kernel(kernel="epanech", x = 50, z = 1:100, h = 10)
 \code{\link[=discrete_optimal(), discrete_triang(), discrete_epanech]{discrete_optimal(), discrete_triang(), discrete_epanech()}}  which
 this function wraps.
 }
-\seealso{
-\code{\link[=discrete_optimal(), discrete_triang(), discrete_epanech]{discrete_optimal(), discrete_triang(), discrete_epanech()}}  which
-this function wraps.
-}
