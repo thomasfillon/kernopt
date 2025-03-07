@@ -94,11 +94,56 @@ kernel). It is only used for optimal and triangular kernel</p></dd>
     <h2>Value</h2>
     <p>Returns the value of the associated kernel function</p>
     </div>
+    <div id="see-also">
+    <h2>See also</h2>
+    <div class="dont-index"><p><code>discrete_optimal(), discrete_triang(), discrete_epanech()</code>  which
+this function wraps.</p></div>
+    </div>
+    <div id="see-also">
+    <h2>See also</h2>
+    <div class="dont-index"><p><code>discrete_optimal(), discrete_triang(), discrete_epanech()</code>  which
+this function wraps.</p></div>
+    </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">discrete_kernel</span><span class="op">(</span>kernel<span class="op">=</span><span class="st">"triang"</span>, x <span class="op">=</span> <span class="fl">50</span>, z <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span>, h <span class="op">=</span> <span class="fl">10</span>, a <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in discrete_kernel(kernel = "triang", x = 50, z = 1:100, h = 10,     a = 5):</span> unused argument (a = 5)</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">#' discrete_kernel(kernel="optimal", x = 50, z = 1:100, h = 10, k = 5)</span></span></span>
+<span class="r-in"><span><span class="fu">discrete_kernel</span><span class="op">(</span>kernel<span class="op">=</span><span class="st">"triang"</span>, x <span class="op">=</span> <span class="fl">50</span>, z <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span>, h <span class="op">=</span> <span class="fl">10</span>, k <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [7] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [13] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [25] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] 0.00000000 0.00000000 0.07880351 0.09235235 0.09389037 0.09398056</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [49] 0.09398215 0.09398215 0.09398215 0.09398056 0.09389037 0.09235235</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] 0.07880351 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [67] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [79] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [85] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [97] 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-in"><span><span class="fu">discrete_kernel</span><span class="op">(</span>kernel<span class="op">=</span><span class="st">"epanech"</span>, x <span class="op">=</span> <span class="fl">50</span>, z <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span>, h <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [7] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [13] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [25] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] 0.00000000 0.00000000 0.00000000 0.00000000 0.01428571 0.02706767</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] 0.03834586 0.04812030 0.05639098 0.06315789 0.06842105 0.07218045</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [49] 0.07443609 0.07518797 0.07443609 0.07218045 0.06842105 0.06315789</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] 0.05639098 0.04812030 0.03834586 0.02706767 0.01428571 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [67] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [79] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [85] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [97] 0.00000000 0.00000000 0.00000000 0.00000000</span>
 </code></pre></div>
     </div>
   </div>
