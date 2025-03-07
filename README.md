@@ -1,6 +1,7 @@
  <!-- badges: start -->
-  [![R-CMD-check](https://github.com/thomasfillon/kernopt/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/thomasfillon/kernopt/actions/workflows/R-CMD-check.yaml)
-   [![Codecov test coverage](https://codecov.io/gh/thomasfillon/kernopt/graph/badge.svg)](https://app.codecov.io/gh/thomasfillon/kernopt)
+ [![CRAN status](https://www.r-pkg.org/badges/version/kernopt)](https://cran.r-project.org/package=kernopt)
+ [![R-CMD-check](https://github.com/thomasfillon/kernopt/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/thomasfillon/kernopt/actions/workflows/R-CMD-check.yaml)
+ [![Codecov test coverage](https://codecov.io/gh/thomasfillon/kernopt/graph/badge.svg)](https://app.codecov.io/gh/thomasfillon/kernopt)
   <!-- badges: end -->
 
 
@@ -14,6 +15,21 @@ The non parametric estimator using the discrete symmetric optimal kernel was ill
 - *Gilles Durrieu*, Université Bretagne Sud - CNRS UMR 6205, LMBA
 - *Thomas Fillon*, Université Bretagne Sud - CNRS UMR 6205, LMBA & CNRS UMR 6074 IRISA
 
+
+## Installation ... WORK IN PROGRESS ...
+
+To get the current released version from CRAN:
+
+```R
+# NOT AVAILABLE ON CRAN YET
+#install.packages("kernopt")
+```
+
+To get the current development version from github:
+
+```R
+# TODO
+```
 
 ## References
 <a id="1">[Senga Kiessé and Durrieu (2024)]</a> *Senga Kiessé T, Durrieu G* (2024). **"On a discrete symmetric optimal associated kernel for estimating count data distributions."** Statistics & Probability Letters, 208, p.110078. ISSN0167-7152.
