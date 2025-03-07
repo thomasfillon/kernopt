@@ -27,7 +27,13 @@ Returns the value of the associated kernel function
 Discrete kernel function
 }
 \examples{
-discrete_kernel(kernel="triang", x = 50, z = 1:100, h = 10, a = 5)
+#' discrete_kernel(kernel="optimal", x = 50, z = 1:100, h = 10, k = 5)
+discrete_kernel(kernel="triang", x = 50, z = 1:100, h = 10, k = 5)
+discrete_kernel(kernel="epanech", x = 50, z = 1:100, h = 10)
+}
+\seealso{
+\code{\link[=discrete_optimal(), discrete_triang(), discrete_epanech]{discrete_optimal(), discrete_triang(), discrete_epanech()}}  which
+this function wraps.
 }
 \seealso{
 \code{\link[=discrete_optimal(), discrete_triang(), discrete_epanech]{discrete_optimal(), discrete_triang(), discrete_epanech()}}  which

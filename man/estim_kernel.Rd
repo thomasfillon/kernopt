@@ -27,5 +27,16 @@ The estimated kernel
 Estimator for discrete optimal kernel
 }
 \examples{
-fn_opt_k <- estim_kernel(kernel=kernel, x=count_values, h=hcv, v=fish_weights, k=k)
+n = 250
+mu = 2 # Mean
+x = 0:10   # Quantile value
+y = sort(rpois(n, mu))
+# kernel parameters
+kernel = "optimal"
+k = 1
+# Cross Validation
+H = seq((max(y) - min(y)) / 200, (max(y) - min(y)) / 2, length.out = 50)
+hcv = cv_bandwidth(kernel=kernel,y,h=H,k=k)
+# Kernel estimation
+fn_opt_k <- estim_kernel(kernel=kernel, x=y, h=hcv, v=x, k=k)
 }

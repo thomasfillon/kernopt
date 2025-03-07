@@ -13,7 +13,13 @@
 #' @export
 #'
 #' @examples
-#' cv_bandwidth(kernel="optimal",fish_weights,H,k=k)
+#' n = 250
+#' mu = 2 # Mean
+#' y = sort(rpois(n, mu))
+#' # kernel support parameter
+#' k = 1
+#' H = seq((max(y) - min(y)) / 200, (max(y) - min(y)) / 2, length.out = 50)
+#' hcv = cv_bandwidth(kernel="optimal",y,h=H,k=k)
 cv_bandwidth <- function(kernel=c("optimal","triang","epanech"), v, h, k=NULL) {
   cv1 <- rep(0, length(h))
   cv2 <- rep(0, length(h))
