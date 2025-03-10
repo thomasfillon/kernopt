@@ -5,6 +5,8 @@ vignette: >
   %\VignetteIndexEntry{Application on Simulated Data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+bibliography: references.bib
+link-citations: TRUE
 ---
 
 ```{r, include = FALSE}
@@ -18,7 +20,11 @@ knitr::opts_chunk$set(
 library(kernopt)
 ```
 
-In this Section, we demonstrate the *kernopt* package by applying it to simulated data set. [@SengaDurrieu2024] performed a simulation study using different sample sizes $n$ from various pmfs $f$, i.e., a Poisson distribution, a geometric distribution and a negative binomial distribution. The code below presents simulations for estimating count data sets of size $n=100$ that follow the Poisson distribution ${\cal P} (\mu=2)$ (Figure \ref{fig:Simulations_Poisson}). The kernel estimator was applied with each of three discrete symmetric kernels presented above in comparison with the count binomial asymmetric kernel that follows the binomial distribution ${\cal B}(x+1,(x+h)/(x+1))$ with support ${\cal S}_x=\{0,1,\ldots,x+1\}$, for $x \in {\cal S} \subseteq {\Bbb N}$ and $h \in (0,1]$ \citep{KokonSenga11}. The cross-validation method was used to select the bandwidth parameter $h$.
+In this vignette, we demonstrate the *kernopt* package by applying it to simulated data set. [@SengaDurrieu2024] performed a simulation study using different sample sizes $n$ from various *pmfs* $f$, i.e., a Poisson distribution, a geometric distribution and a negative binomial distribution. The code below presents simulations for estimating count data sets of size $n=100$ that follow the Poisson distribution ${\cal P} (\mu=2)$ (see Figure below). 
+
+The kernel estimator was applied with each of three discrete symmetric kernels presented above in comparison with the count binomial asymmetric kernel that follows the binomial distribution ${\cal B}(x+1,(x+h)/(x+1))$ with support ${\cal S}_x=\{0,1,\ldots,x+1\}$, for $x \in {\cal S} \subseteq {\Bbb N}$ and $h \in (0,1]$ \citep{KokonSenga11}. 
+
+The cross-validation method was used to select the bandwidth parameter $h$ with the help of the `cv_bandwith()` function.
 
 ```{r}
 # Simulated data
