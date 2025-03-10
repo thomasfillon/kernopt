@@ -10,7 +10,7 @@
 #'   of the kernel function (corresponds to parameter 'a' for triangular
 #'   kernel). It is only used for optimal and triangular kernel
 #' @return Returns the value of the associated kernel function
-#' @seealso [discrete_optimal(), discrete_triang(), discrete_epanech()]  which
+#' @seealso [discrete_optimal()], [discrete_triang()], [discrete_epanech()]  which
 #'   this function wraps.
 #' @export
 #'

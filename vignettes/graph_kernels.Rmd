@@ -1,14 +1,13 @@
 ---
-editor_options: 
-  markdown: 
-    wrap: 72
+title: "Graphic Comparison Of Discrete Kernels" 
+output: rmarkdown::html_vignette 
+vignette: >
+  %\VignetteIndexEntry{Graphic Comparison Of Discrete Kernels} 
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: references.bib
+link-citations: TRUE
 ---
-
-# ---
-
-title: "graph_kernels" output: rmarkdown::html_vignette vignette: \>
-%\VignetteIndexEntry{graph_kernels} %\VignetteEngine{knitr::rmarkdown}
-%\VignetteEncoding{UTF-8} ---
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -23,123 +22,164 @@ library(kernopt)
 
 ## Introduction
 
-This vignette illustrates some functions provided by the *kernopt* R
-package that implements discrete symmetric kernels, which were recently
-developed for modeling count data distributions.
+This vignette illustrates some functions provided by the *kernopt* package that implements discrete symmetric kernels, which were recently developed for modeling count data distributions.
 
-```{r}
-### COMPARISON GRAPH OF SYMMETRIC KERNELS
+The *kernopt* package computes that kernel at a target `x` for various values of observations `z` and a fixed bandwidth `h` by using the function `discrete_kernel()` included in this package.
 
-# epanech
-z <- 0:10 # Observations (?)
+## Discrete Epanechnikov Kernel
+
+For a positive integer $h\in\mathbb{N}\setminus\{0\}$, the first example is a discrete symmetric *Epanechnikov* kernel with $\mathcal{S}_{x}=\{x,...,x\pm h\}$ given by:
+
+\begin{equation}
+K^{Epan}_{x,h}(y)= \left(a\bigg(\frac{x-y}{h}\bigg)^{2} + b\right){\bf 1}_{\{x,x\pm 1,...,x\pm h\}}(y),
+\end{equation}
+
+with $a=-b=3h/(1-4h^{2})$ [@chu2017]
+
+That kernel only involves the parameter $h$, which is a positive integer that scales the distance between $x$ and $y$. The discrete *Epanechnikov* kernel is less often used in the literature, compared to its continuous counterpart.
+
+Below is an illustration of the discrete *Epanechnikov* kernel for different values of `h` using the `discrete_kernel()`function.
+
+```{r, fig.cap='Distribution of discrete symmetric Epanechnikov kernel at the target point $x=5$ for various bandwidth parameters $h$.'}
 x <- 5 # Target
-h <- c(1, 2, 3, 4) # Set of Bandwidths
-
-K_epan <- matrix(
-  data = 0,
-  nrow = length(z),
-  ncol = length(h)
-)
-
+z <- 0:10 # Observations (?)
+h <- c(1, 2, 3, 4)  # Set of Bandwidths
+K_epan <- matrix(data = 0,
+                 nrow = length(z),
+                 ncol = length(h))
 for (i in 1:length(h))
 {
-  K_epan[, i] <- discrete_epanech(x, z, h[i])
+  K_epan[, i] = discrete_kernel(kernel = "epanech", x, z, h[i])
 }
-
-
-
-# p=k=1
-# opt
-z <- 0:10
-x <- 5
-k <- 1
-h <- c(0.2, 0.7, 0.95)
-K_opt <- matrix(0, length(z), length(h))
-for (i in 1:length(h))
-{
-  K_opt[, i] <- discrete_optimal(x, z, h[i], k)
-}
-
-# 1,1 - Optimal (k=1, h) and Epanechnikov (h=1)
 plot(
-  x = z,
-  y = K_opt[, 1],
-  xlab = "z",
-  ylab = "Probability",
-  ylim = c(0, 1),
-  main = "Optimal (k=1, h) and Epanechnikov (h=1)",
-  type = "o",
-  pch = 1,
-  # Symbol
-  lty = 1,
-  # Line type
-  lwd = 2,
-  # Line width
-  cex = 1.6,
-  # Magnification factor
-  cex.axis = 1.2,
-  # Magnification factor for axis
-  cex.lab = 1.2,
-  # Magnification factor for label
-)
-
-lines(
-  z,
-  K_opt[, 2],
-  type = "o",
-  pch = 2,
-  # Symbol
-  lty = 2,
-  # Line type
-  lwd = 2,
-  # Line width
-  col = "grey",
-)
-
-lines(
-  z,
-  K_opt[, 3],
-  type = "o",
-  pch = 3,
-  lty = 3,
-  lwd = 2
-)
-
-
-lines(
   z,
   K_epan[, 1],
-  type = "o",
-  pch = 4,
-  lty = 4,
-  lwd = 2,
-  col = "grey"
+  xlab = "x",
+  ylab = "Probability",
+  ylim = c(0, 1),
+  pch = 1
 )
-
+lines(z, K_epan[, 1], lty = 1)
+for (i in 2:length(h))
+{
+  points(z, K_epan[, i], xlab = "z", pch = i)
+  lines(z, K_epan[, i], lty = i)
+}
 legend(
-  0,
-  1,
-  c("Opt. h=0.2", "Opt. h=0.7", "Opt. h=0.95", "Epan. h=1"),
-  lty = c(1, 2, 3, 4),
-  pch = c(1, 2, 3, 4),
-  col = c("black", "grey", "black", "grey"),
-  lwd = c(2, 2, 2, 2),
-  cex = 1.2
+  "topleft",
+  c("h=1", "h=2", "h=3", "h=4"),
+  lty = 1:4,
+  pch = 1:4,
+  cex = 1.6
 )
 ```
 
-```{r}
-#-------------------------
-# Graph
-# ------------------------
-# graphics.off()
-dev.off()
-par(mfrow = c(2, 2)) # 2 x 2 pictures on one plot
+## Discrete Triangular Kernel
 
+For $h>0$ and non-negative integer $a\in\mathbb{N}$, the second example is the discrete symmetric triangular kernel with $\mathcal{S}_{x}=\{x,x\pm 1,...,x\pm a\}$, which has a pmf defined by \begin{equation*}\label{eq_TriangKern}
+K^{Triang}_{a;x,h}(y)= \frac{(a+1)^{h}}{C(a,h)}\left(1 - \frac{|y-x|^{h}}{(a+1)^{h}}\right){\bf 1}_{\{x,x\pm 1,...,x\pm a\}}(y),
+\end{equation*} with $C(a,h)=(2a+1)(a+1)^{h} - 2\sum_{j=0}^{a}j^{h}$ [@KokonZocSenga2007]. That kernel depends on two parameters $h$ and $a$. That kernel was implemented in the \pkg{kernopt} package through the function \fct{discrete\_triang} with its specific arguments as follows:
+
+```{r, fig.cap="Distribution of discrete symmetric triangular kernel ($a=1$) at the target point $x=5$ for various bandwidth parameters $h$."}
+x <- 5
+z <- 0:10
+h <- c(0.1, 0.4, 1, 2)
+a <- 1
+
+K_trg <- matrix(data = 0,
+                 nrow = length(z),
+                 ncol = length(h))
+
+for (i in 1:length(h))
+{
+  K_trg[, i] = discrete_kernel(kernel = "triang", x, z, h[i], a)
+}
+plot(
+  z,
+  K_trg[, 1],
+  xlab = "x",
+  ylab = "Probability",
+  ylim = c(0, 1),
+  pch = 1
+)
+lines(z, K_trg[, 1], lty = 1)
+for (i in 2:length(h))
+{
+  points(z, K_trg[, i], xlab = "z", pch = i)
+  lines(z, K_trg[, i], lty = i)
+}
+legend(
+  "topleft",
+  c("h=0.1", "h=0.4", "h=1", "h=2"),
+  lty = 1:4,
+  pch = 1:4,
+  cex = 1.6
+)
+```
+
+The discrete symmetric triangular kernel is also available in the *Ake* package in R [@Wansouwe2016].
+
+## Discrete Optimal Kernel
+The Discrete Optimal Kernel was proposed in  [@SengaDurrieu2024].
+
+For $x\in \mathcal{S}$ and a fixed integer $k\geq1$, the discrete symmetric "optimal" kernel on $\mathcal{S}_{x}=\{x,x\pm 1,\ldots,x\pm k\}$ that minimises the mean integrate squared error of the estimator $\widehat{f}_{K,h}$ in (\ref{eq:estim_fn}) is given by 
+\begin{equation*}\label{eq:OptKern_k}
+ K_{k;x,h}^{opt}(y)
+ =\lambda\bigg(\frac{3k^{2}+3k-1}{5} -(x-y)^{2} \bigg)+\frac{h}{2k+1}, y\in\mathcal{S}_{x},  
+\end{equation*}
+where $\lambda=15(1-h)/\big((2k+1)(4k^{2}+4k-3)\big)>0$ and $3/5(1-1/k)<h<1$. 
+
+
+The bandwidth parameter $h$ of the ``optimal'' kernels $K_{k;x,h}^{opt}$ is bounded with a lower bound $h_{lower}= 3/5(1-1/k)\geq0$, which particularly depends on $k\geq 1$. The distribution of that kernel can be plotted as follows:
+
+```{r, fig.cap='Distribution of discrete symmetric "optimal" kernel ($k=1$) at the target point $x=5$ for various bandwidth parameters $h$.'}
+x <- 5
+z <- 0:10
+h <- c(0.1, 0.4, 0.7, 0.9)
+k <- 1
+
+K_opt <- matrix(data = 0,
+                 nrow = length(z),
+                 ncol = length(h))
+
+for (i in 1:length(h))
+{
+  K_opt[, i] = discrete_kernel(kernel = "optimal", x, z, h[i], k)
+}
+plot(
+  z,
+  K_opt[, 1],
+  xlab = "x",
+  ylab = "Probability",
+  ylim = c(0, 1),
+  pch = 1
+)
+lines(z, K_opt[, 1], lty = 1)
+for (i in 2:length(h))
+{
+  points(z, K_opt[, i], xlab = "z", pch = i)
+  lines(z, K_opt[, i], lty = i)
+}
+legend(
+  "topleft",
+  c("h=0.1", "h=0.4", "h=0.7", "h=0.9"),
+  lty = 1:4,
+  pch = 1:4,
+  cex = 1.6
+)
+```
+
+
+## Graphical comparison of the discrete kernels
+
+
+```{r}
+
+par(mfrow = c(2, 2), mar=c(1,1,1,1)) # 2 x 2 pictures on one plot
 # 1,1 - Optimal (k=1, h) and Epanechnikov (h=1)
 plot(
   x = z,
-  y = K_opt[, 1],
+  # y = K_opt[, 1],
   xlab = "z",
   ylab = "Probability",
   ylim = c(0, 1),
@@ -202,6 +242,7 @@ legend(
   lwd = c(2, 2, 2, 2),
   cex = 1.2
 )
+
 
 
 # Triangular (a=1, h) and Epanechnikov (h=1)
