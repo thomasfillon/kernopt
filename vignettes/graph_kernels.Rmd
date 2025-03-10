@@ -43,13 +43,15 @@ Below is an illustration of the discrete *Epanechnikov* kernel for different val
 ```{r, fig.cap='Distribution of discrete symmetric Epanechnikov kernel at the target point $x=5$ for various bandwidth parameters $h$.'}
 x <- 5 # Target
 z <- 0:10 # Observations (?)
-h <- c(1, 2, 3, 4)  # Set of Bandwidths
-K_epan <- matrix(data = 0,
-                 nrow = length(z),
-                 ncol = length(h))
+h <- c(1, 2, 3, 4) # Set of Bandwidths
+K_epan <- matrix(
+  data = 0,
+  nrow = length(z),
+  ncol = length(h)
+)
 for (i in 1:length(h))
 {
-  K_epan[, i] = discrete_kernel(kernel = "epanech", x, z, h[i])
+  K_epan[, i] <- discrete_kernel(kernel = "epanech", x, z, h[i])
 }
 plot(
   z,
@@ -86,13 +88,15 @@ z <- 0:10
 h <- c(0.1, 0.4, 1, 2)
 a <- 1
 
-K_trg <- matrix(data = 0,
-                 nrow = length(z),
-                 ncol = length(h))
+K_trg <- matrix(
+  data = 0,
+  nrow = length(z),
+  ncol = length(h)
+)
 
 for (i in 1:length(h))
 {
-  K_trg[, i] = discrete_kernel(kernel = "triang", x, z, h[i], a)
+  K_trg[, i] <- discrete_kernel(kernel = "triang", x, z, h[i], a)
 }
 plot(
   z,
@@ -138,13 +142,15 @@ z <- 0:10
 h <- c(0.1, 0.4, 0.7, 0.9)
 k <- 1
 
-K_opt <- matrix(data = 0,
-                 nrow = length(z),
-                 ncol = length(h))
+K_opt <- matrix(
+  data = 0,
+  nrow = length(z),
+  ncol = length(h)
+)
 
 for (i in 1:length(h))
 {
-  K_opt[, i] = discrete_kernel(kernel = "optimal", x, z, h[i], k)
+  K_opt[, i] <- discrete_kernel(kernel = "optimal", x, z, h[i], k)
 }
 plot(
   z,
@@ -174,8 +180,7 @@ legend(
 
 
 ```{r}
-
-par(mfrow = c(2, 2), mar=c(1,1,1,1)) # 2 x 2 pictures on one plot
+par(mfrow = c(2, 2), mar = c(1, 1, 1, 1)) # 2 x 2 pictures on one plot
 # 1,1 - Optimal (k=1, h) and Epanechnikov (h=1)
 plot(
   x = z,

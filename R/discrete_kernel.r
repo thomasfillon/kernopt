@@ -1,4 +1,3 @@
-
 #' Discrete kernel function
 #'
 #' @param kernel the type of kernel. Currently supported kernels are limited to:
@@ -16,12 +15,13 @@
 #'
 #' @examples
 #' #' discrete_kernel(kernel="optimal", x = 50, z = 1:100, h = 10, k = 5)
-#' discrete_kernel(kernel="triang", x = 50, z = 1:100, h = 10, k = 5)
-#' discrete_kernel(kernel="epanech", x = 50, z = 1:100, h = 10)
-discrete_kernel <- function(kernel=c("optimal","triang","epanech"),
-                            x, z, h, k=NULL) {
+#' discrete_kernel(kernel = "triang", x = 50, z = 1:100, h = 10, k = 5)
+#' discrete_kernel(kernel = "epanech", x = 50, z = 1:100, h = 10)
+discrete_kernel <- function(kernel = c("optimal", "triang", "epanech"),
+                            x, z, h, k = NULL) {
   switch(kernel,
-         "optimal" = discrete_optimal(x=x, z=z, h=h, k=k),
-         "triang"= discrete_triang(x=x, z=z, h=h, a=k),
-         "epanech"= discrete_epanech(x=x, z=z, h=h))
+    "optimal" = discrete_optimal(x = x, z = z, h = h, k = k),
+    "triang" = discrete_triang(x = x, z = z, h = h, a = k),
+    "epanech" = discrete_epanech(x = x, z = z, h = h)
+  )
 }

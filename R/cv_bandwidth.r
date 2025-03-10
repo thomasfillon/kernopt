@@ -13,14 +13,14 @@
 #' @export
 #'
 #' @examples
-#' n = 250
-#' mu = 2 # Mean
-#' y = sort(rpois(n, mu))
+#' n <- 250
+#' mu <- 2 # Mean
+#' y <- sort(rpois(n, mu))
 #' # kernel support parameter
-#' k = 1
-#' H = seq((max(y) - min(y)) / 200, (max(y) - min(y)) / 2, length.out = 50)
-#' hcv = cv_bandwidth(kernel="optimal",y,h=H,k=k)
-cv_bandwidth <- function(kernel=c("optimal","triang","epanech"), v, h, k=NULL) {
+#' k <- 1
+#' H <- seq((max(y) - min(y)) / 200, (max(y) - min(y)) / 2, length.out = 50)
+#' hcv <- cv_bandwidth(kernel = "optimal", y, h = H, k = k)
+cv_bandwidth <- function(kernel = c("optimal", "triang", "epanech"), v, h, k = NULL) {
   cv1 <- rep(0, length(h))
   cv2 <- rep(0, length(h))
   x <- 0:(max(v) + 2)
@@ -33,11 +33,11 @@ cv_bandwidth <- function(kernel=c("optimal","triang","epanech"), v, h, k=NULL) {
     tryCatch(
       {
         for (j in 1:n1) {
-          a[j, 1:n2] <- discrete_kernel(kernel=kernel, x=x[j], z=v, h=h[l], k=k)
+          a[j, 1:n2] <- discrete_kernel(kernel = kernel, x = x[j], z = v, h = h[l], k = k)
         }
 
         for (j in 1:n2) {
-          b[j, 1:n2] <- discrete_kernel(kernel=kernel, x=v[j], z=v, h=h[l], k=k)
+          b[j, 1:n2] <- discrete_kernel(kernel = kernel, x = v[j], z = v, h = h[l], k = k)
         }
 
         res1 <- apply(a, 1, mean)
