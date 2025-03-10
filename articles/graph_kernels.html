@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> • kernopt</title>
+<title>Graphic Comparison Of Discrete Kernels • kernopt</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Graphic Comparison Of Discrete Kernels">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -52,7 +52,7 @@
       <a href="../articles/applications.html">applications</a>
     </li>
     <li>
-      <a href="../articles/graph_kernels.html">UNKNOWN TITLE</a>
+      <a href="../articles/graph_kernels.html">Graphic Comparison Of Discrete Kernels</a>
     </li>
   </ul>
 </li>
@@ -73,7 +73,7 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip></h1>
+      <h1 data-toc-skip>Graphic Comparison Of Discrete Kernels</h1>
             
       
 
@@ -83,133 +83,253 @@
 
     
     
-<div class="section level2">
-<h2 id="section">—<a class="anchor" aria-label="anchor" href="#section"></a>
-</h2>
-<p>title: “graph_kernels” output: rmarkdown::html_vignette vignette:
-&gt; % % % —</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://thomasfillon.github.io/kernopt/" class="external-link">kernopt</a></span><span class="op">)</span></span></code></pre></div>
-<div class="section level3">
-<h3 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
-</h3>
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
 <p>This vignette illustrates some functions provided by the
-<em>kernopt</em> R package that implements discrete symmetric kernels,
+<em>kernopt</em> package that implements discrete symmetric kernels,
 which were recently developed for modeling count data distributions.</p>
+<p>The <em>kernopt</em> package computes that kernel at a target
+<code>x</code> for various values of observations <code>z</code> and a
+fixed bandwidth <code>h</code> by using the function
+<code><a href="../reference/discrete_kernel.html">discrete_kernel()</a></code> included in this package.</p>
+</div>
+<div class="section level2">
+<h2 id="discrete-epanechnikov-kernel">Discrete Epanechnikov Kernel<a class="anchor" aria-label="anchor" href="#discrete-epanechnikov-kernel"></a>
+</h2>
+<p>For a positive integer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>∈</mo><mi>ℕ</mi><mo>\</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">h\in\mathbb{N}\setminus\{0\}</annotation></semantics></math>,
+the first example is a discrete symmetric <em>Epanechnikov</em> kernel
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝒮</mi><mi>x</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>x</mi><mo>,</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo>,</mo><mi>x</mi><mo>±</mo><mi>h</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\mathcal{S}_{x}=\{x,...,x\pm h\}</annotation></semantics></math>
+given by:</p>
+<p><span class="math display">$$\begin{equation}
+K^{Epan}_{x,h}(y)= \left(a\bigg(\frac{x-y}{h}\bigg)^{2} + b\right){\bf
+1}_{\{x,x\pm 1,...,x\pm h\}}(y),
+\end{equation}$$</span></p>
+<p>with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mo>−</mo><mi>b</mi><mo>=</mo><mn>3</mn><mi>h</mi><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>4</mn><msup><mi>h</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">a=-b=3h/(1-4h^{2})</annotation></semantics></math><span class="citation">(<a href="#ref-chu2017">Chu, Henderson, and
+Parmeter 2017</a>)</span></p>
+<p>That kernel only involves the parameter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>,
+which is a positive integer that scales the distance between
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>.
+The discrete <em>Epanechnikov</em> kernel is less often used in the
+literature, compared to its continuous counterpart.</p>
+<p>Below is an illustration of the discrete <em>Epanechnikov</em> kernel
+for different values of <code>h</code> using the
+<code><a href="../reference/discrete_kernel.html">discrete_kernel()</a></code>function.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">### COMPARISON GRAPH OF SYMMETRIC KERNELS</span></span>
-<span></span>
-<span><span class="co"># epanech</span></span>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">5</span> <span class="co"># Target</span></span>
 <span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span> <span class="co"># Observations (?)</span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">5</span> <span class="co"># Target</span></span>
-<span><span class="va">h</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span> <span class="co"># Set of Bandwidths</span></span>
-<span></span>
-<span><span class="va">K_epan</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span></span>
-<span>  data <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>  nrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span>,</span>
-<span>  ncol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
+<span><span class="va">h</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>  <span class="co"># Set of Bandwidths</span></span>
+<span><span class="va">K_epan</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>                 nrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span>,</span>
+<span>                 ncol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">{</span></span>
-<span>  <span class="va">K_epan</span><span class="op">[</span>, <span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/discrete_epanech.html">discrete_epanech</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">z</span>, <span class="va">h</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
+<span>  <span class="va">K_epan</span><span class="op">[</span>, <span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="../reference/discrete_kernel.html">discrete_kernel</a></span><span class="op">(</span>kernel <span class="op">=</span> <span class="st">"epanech"</span>, <span class="va">x</span>, <span class="va">z</span>, <span class="va">h</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
-<span></span>
-<span></span>
-<span></span>
-<span><span class="co"># p=k=1</span></span>
-<span><span class="co"># opt</span></span>
-<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
-<span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
-<span><span class="va">h</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.7</span>, <span class="fl">0.95</span><span class="op">)</span></span>
-<span><span class="va">K_opt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">{</span></span>
-<span>  <span class="va">K_opt</span><span class="op">[</span>, <span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/discrete_optimal.html">discrete_optimal</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">z</span>, <span class="va">h</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="va">k</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="co"># 1,1 - Optimal (k=1, h) and Epanechnikov (h=1)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span></span>
-<span>  x <span class="op">=</span> <span class="va">z</span>,</span>
-<span>  y <span class="op">=</span> <span class="va">K_opt</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span>,</span>
-<span>  xlab <span class="op">=</span> <span class="st">"z"</span>,</span>
-<span>  ylab <span class="op">=</span> <span class="st">"Probability"</span>,</span>
-<span>  ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
-<span>  main <span class="op">=</span> <span class="st">"Optimal (k=1, h) and Epanechnikov (h=1)"</span>,</span>
-<span>  type <span class="op">=</span> <span class="st">"o"</span>,</span>
-<span>  pch <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  <span class="co"># Symbol</span></span>
-<span>  lty <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  <span class="co"># Line type</span></span>
-<span>  lwd <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>  <span class="co"># Line width</span></span>
-<span>  cex <span class="op">=</span> <span class="fl">1.6</span>,</span>
-<span>  <span class="co"># Magnification factor</span></span>
-<span>  cex.axis <span class="op">=</span> <span class="fl">1.2</span>,</span>
-<span>  <span class="co"># Magnification factor for axis</span></span>
-<span>  cex.lab <span class="op">=</span> <span class="fl">1.2</span>,</span>
-<span>  <span class="co"># Magnification factor for label</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span></span>
-<span>  <span class="va">z</span>,</span>
-<span>  <span class="va">K_opt</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span>,</span>
-<span>  type <span class="op">=</span> <span class="st">"o"</span>,</span>
-<span>  pch <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>  <span class="co"># Symbol</span></span>
-<span>  lty <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>  <span class="co"># Line type</span></span>
-<span>  lwd <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>  <span class="co"># Line width</span></span>
-<span>  col <span class="op">=</span> <span class="st">"grey"</span>,</span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span></span>
-<span>  <span class="va">z</span>,</span>
-<span>  <span class="va">K_opt</span><span class="op">[</span>, <span class="fl">3</span><span class="op">]</span>,</span>
-<span>  type <span class="op">=</span> <span class="st">"o"</span>,</span>
-<span>  pch <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>  lty <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>  lwd <span class="op">=</span> <span class="fl">2</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span></span>
 <span>  <span class="va">z</span>,</span>
 <span>  <span class="va">K_epan</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span>,</span>
-<span>  type <span class="op">=</span> <span class="st">"o"</span>,</span>
-<span>  pch <span class="op">=</span> <span class="fl">4</span>,</span>
-<span>  lty <span class="op">=</span> <span class="fl">4</span>,</span>
-<span>  lwd <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>  col <span class="op">=</span> <span class="st">"grey"</span></span>
+<span>  xlab <span class="op">=</span> <span class="st">"x"</span>,</span>
+<span>  ylab <span class="op">=</span> <span class="st">"Probability"</span>,</span>
+<span>  ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>  pch <span class="op">=</span> <span class="fl">1</span></span>
 <span><span class="op">)</span></span>
-<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">K_epan</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span>, lty <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">K_epan</span><span class="op">[</span>, <span class="va">i</span><span class="op">]</span>, xlab <span class="op">=</span> <span class="st">"z"</span>, pch <span class="op">=</span> <span class="va">i</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">K_epan</span><span class="op">[</span>, <span class="va">i</span><span class="op">]</span>, lty <span class="op">=</span> <span class="va">i</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span></span>
-<span>  <span class="fl">0</span>,</span>
-<span>  <span class="fl">1</span>,</span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Opt. h=0.2"</span>, <span class="st">"Opt. h=0.7"</span>, <span class="st">"Opt. h=0.95"</span>, <span class="st">"Epan. h=1"</span><span class="op">)</span>,</span>
-<span>  lty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>,</span>
-<span>  pch <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>,</span>
-<span>  col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"grey"</span>, <span class="st">"black"</span>, <span class="st">"grey"</span><span class="op">)</span>,</span>
-<span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>,</span>
-<span>  cex <span class="op">=</span> <span class="fl">1.2</span></span>
+<span>  <span class="st">"topleft"</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"h=1"</span>, <span class="st">"h=2"</span>, <span class="st">"h=3"</span>, <span class="st">"h=4"</span><span class="op">)</span>,</span>
+<span>  lty <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span>,</span>
+<span>  pch <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fl">1.6</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p><img src="graph_kernels_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
+<div class="figure">
+<img src="graph_kernels_files/figure-html/unnamed-chunk-2-1.png" alt="Distribution of discrete symmetric Epanechnikov kernel at the target point $x=5$ for various bandwidth parameters $h$." width="700"><p class="caption">
+Distribution of discrete symmetric Epanechnikov kernel at the target
+point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">x=5</annotation></semantics></math>
+for various bandwidth parameters
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>.
+</p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="discrete-triangular-kernel">Discrete Triangular Kernel<a class="anchor" aria-label="anchor" href="#discrete-triangular-kernel"></a>
+</h2>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h&gt;0</annotation></semantics></math>
+and non-negative integer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>ℕ</mi></mrow><annotation encoding="application/x-tex">a\in\mathbb{N}</annotation></semantics></math>,
+the second example is the discrete symmetric triangular kernel with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝒮</mi><mi>x</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>x</mi><mo>,</mo><mi>x</mi><mo>±</mo><mn>1</mn><mo>,</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo>,</mo><mi>x</mi><mo>±</mo><mi>a</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\mathcal{S}_{x}=\{x,x\pm 1,...,x\pm a\}</annotation></semantics></math>,
+which has a pmf defined by <span class="math display">$$\begin{equation*}\label{eq_TriangKern}
+K^{Triang}_{a;x,h}(y)= \frac{(a+1)^{h}}{C(a,h)}\left(1 -
+\frac{|y-x|^{h}}{(a+1)^{h}}\right){\bf 1}_{\{x,x\pm 1,...,x\pm a\}}(y),
+\end{equation*}$$</span> with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>h</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mi>a</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>h</mi></msup><mo>−</mo><mn>2</mn><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>0</mn></mrow><mi>a</mi></msubsup><msup><mi>j</mi><mi>h</mi></msup></mrow><annotation encoding="application/x-tex">C(a,h)=(2a+1)(a+1)^{h} - 2\sum_{j=0}^{a}j^{h}</annotation></semantics></math><span class="citation">(<a href="#ref-KokonZocSenga2007">Kokonendji,
+Senga Kiessé, and Zocchi 2007</a>)</span>. That kernel depends on two
+parameters
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>.
+That kernel was implemented in the package through the function with its
+specific arguments as follows:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#-------------------------</span></span>
-<span><span class="co"># Graph</span></span>
-<span><span class="co"># ------------------------</span></span>
-<span><span class="co"># graphics.off()</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; null device </span></span>
-<span><span class="co">#&gt;           1</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># 2 x 2 pictures on one plot</span></span>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
+<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span></span>
+<span><span class="va">h</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.4</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
 <span></span>
+<span><span class="va">K_trg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>                 nrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span>,</span>
+<span>                 ncol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">{</span></span>
+<span>  <span class="va">K_trg</span><span class="op">[</span>, <span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="../reference/discrete_kernel.html">discrete_kernel</a></span><span class="op">(</span>kernel <span class="op">=</span> <span class="st">"triang"</span>, <span class="va">x</span>, <span class="va">z</span>, <span class="va">h</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="va">a</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span></span>
+<span>  <span class="va">z</span>,</span>
+<span>  <span class="va">K_trg</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span>,</span>
+<span>  xlab <span class="op">=</span> <span class="st">"x"</span>,</span>
+<span>  ylab <span class="op">=</span> <span class="st">"Probability"</span>,</span>
+<span>  ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>  pch <span class="op">=</span> <span class="fl">1</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">K_trg</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span>, lty <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">K_trg</span><span class="op">[</span>, <span class="va">i</span><span class="op">]</span>, xlab <span class="op">=</span> <span class="st">"z"</span>, pch <span class="op">=</span> <span class="va">i</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">K_trg</span><span class="op">[</span>, <span class="va">i</span><span class="op">]</span>, lty <span class="op">=</span> <span class="va">i</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span></span>
+<span>  <span class="st">"topleft"</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"h=0.1"</span>, <span class="st">"h=0.4"</span>, <span class="st">"h=1"</span>, <span class="st">"h=2"</span><span class="op">)</span>,</span>
+<span>  lty <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span>,</span>
+<span>  pch <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fl">1.6</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="figure">
+<img src="graph_kernels_files/figure-html/unnamed-chunk-3-1.png" alt="Distribution of discrete symmetric triangular kernel ($a=1$) at the target point $x=5$ for various bandwidth parameters $h$." width="700"><p class="caption">
+Distribution of discrete symmetric triangular kernel
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a=1</annotation></semantics></math>)
+at the target point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">x=5</annotation></semantics></math>
+for various bandwidth parameters
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>.
+</p>
+</div>
+<p>The discrete symmetric triangular kernel is also available in the
+<em>Ake</em> package in R <span class="citation">(<a href="#ref-Wansouwe2016">Wansouwé, Somé, and Kokonendji
+2016</a>)</span>.</p>
+</div>
+<div class="section level2">
+<h2 id="discrete-optimal-kernel">Discrete Optimal Kernel<a class="anchor" aria-label="anchor" href="#discrete-optimal-kernel"></a>
+</h2>
+<p>The Discrete Optimal Kernel was proposed in <span class="citation">(<a href="#ref-SengaDurrieu2024">Senga Kiessé and
+Durrieu 2024</a>)</span>.</p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>𝒮</mi></mrow><annotation encoding="application/x-tex">x\in \mathcal{S}</annotation></semantics></math>
+and a fixed integer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k\geq1</annotation></semantics></math>,
+the discrete symmetric “optimal” kernel on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝒮</mi><mi>x</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>x</mi><mo>,</mo><mi>x</mi><mo>±</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>x</mi><mo>±</mo><mi>k</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\mathcal{S}_{x}=\{x,x\pm 1,\ldots,x\pm k\}</annotation></semantics></math>
+that minimises the mean integrate squared error of the estimator
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>f</mi><mo accent="true">̂</mo></mover><mrow><mi>K</mi><mo>,</mo><mi>h</mi></mrow></msub><annotation encoding="application/x-tex">\widehat{f}_{K,h}</annotation></semantics></math>
+in () is given by
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>K</mi><mrow><mi>k</mi><mo>;</mo><mi>x</mi><mo>,</mo><mi>h</mi></mrow><mrow><mi>o</mi><mi>p</mi><mi>t</mi></mrow></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>λ</mi><mo minsize="2.4" maxsize="2.4" stretchy="false" form="prefix">(</mo><mfrac><mrow><mn>3</mn><msup><mi>k</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mn>5</mn></mfrac><mo>−</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo minsize="2.4" maxsize="2.4" stretchy="false" form="postfix">)</mo><mo>+</mo><mfrac><mi>h</mi><mrow><mn>2</mn><mi>k</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mo>,</mo><mi>y</mi><mo>∈</mo><msub><mi>𝒮</mi><mi>x</mi></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">\begin{equation*}\label{eq:OptKern_k}
+ K_{k;x,h}^{opt}(y)
+ =\lambda\bigg(\frac{3k^{2}+3k-1}{5} -(x-y)^{2} \bigg)+\frac{h}{2k+1}, y\in\mathcal{S}_{x},  
+\end{equation*}</annotation></semantics></math> where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mn>15</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>h</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><msup><mi>k</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mi>k</mi><mo>−</mo><mn>3</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda=15(1-h)/\big((2k+1)(4k^{2}+4k-3)\big)&gt;0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>/</mi><mn>5</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>1</mn><mi>/</mi><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>&lt;</mo><mi>h</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">3/5(1-1/k)&lt;h&lt;1</annotation></semantics></math>.</p>
+<p>The bandwidth parameter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+of the ``optimal’’ kernels
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>K</mi><mrow><mi>k</mi><mo>;</mo><mi>x</mi><mo>,</mo><mi>h</mi></mrow><mrow><mi>o</mi><mi>p</mi><mi>t</mi></mrow></msubsup><annotation encoding="application/x-tex">K_{k;x,h}^{opt}</annotation></semantics></math>
+is bounded with a lower bound
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mrow><mi>l</mi><mi>o</mi><mi>w</mi><mi>e</mi><mi>r</mi></mrow></msub><mo>=</mo><mn>3</mn><mi>/</mi><mn>5</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>1</mn><mi>/</mi><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h_{lower}= 3/5(1-1/k)\geq0</annotation></semantics></math>,
+which particularly depends on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k\geq 1</annotation></semantics></math>.
+The distribution of that kernel can be plotted as follows:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
+<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span></span>
+<span><span class="va">h</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.4</span>, <span class="fl">0.7</span>, <span class="fl">0.9</span><span class="op">)</span></span>
+<span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span></span>
+<span><span class="va">K_opt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>                 nrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span>,</span>
+<span>                 ncol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">{</span></span>
+<span>  <span class="va">K_opt</span><span class="op">[</span>, <span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="../reference/discrete_kernel.html">discrete_kernel</a></span><span class="op">(</span>kernel <span class="op">=</span> <span class="st">"optimal"</span>, <span class="va">x</span>, <span class="va">z</span>, <span class="va">h</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="va">k</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span></span>
+<span>  <span class="va">z</span>,</span>
+<span>  <span class="va">K_opt</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span>,</span>
+<span>  xlab <span class="op">=</span> <span class="st">"x"</span>,</span>
+<span>  ylab <span class="op">=</span> <span class="st">"Probability"</span>,</span>
+<span>  ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>  pch <span class="op">=</span> <span class="fl">1</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">K_opt</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span>, lty <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">K_opt</span><span class="op">[</span>, <span class="va">i</span><span class="op">]</span>, xlab <span class="op">=</span> <span class="st">"z"</span>, pch <span class="op">=</span> <span class="va">i</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">z</span>, <span class="va">K_opt</span><span class="op">[</span>, <span class="va">i</span><span class="op">]</span>, lty <span class="op">=</span> <span class="va">i</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span></span>
+<span>  <span class="st">"topleft"</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"h=0.1"</span>, <span class="st">"h=0.4"</span>, <span class="st">"h=0.7"</span>, <span class="st">"h=0.9"</span><span class="op">)</span>,</span>
+<span>  lty <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span>,</span>
+<span>  pch <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fl">1.6</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="figure">
+&lt;img
+src=“/home/runner/work/kernopt/kernopt/docs/articles/graph_kernels_files/figure-html/unnamed-chunk-4-1.png”
+alt=“Distribution of discrete symmetric”optimal” kernel
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k=1</annotation></semantics></math>)
+at the target point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">x=5</annotation></semantics></math>
+for various bandwidth parameters
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>.”
+width=“700” /&gt;
+<p class="caption">
+Distribution of discrete symmetric “optimal” kernel
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k=1</annotation></semantics></math>)
+at the target point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">x=5</annotation></semantics></math>
+for various bandwidth parameters
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>.
+</p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="graphical-comparison-of-the-discrete-kernels">Graphical comparison of the discrete kernels<a class="anchor" aria-label="anchor" href="#graphical-comparison-of-the-discrete-kernels"></a>
+</h2>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>, mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># 2 x 2 pictures on one plot</span></span>
 <span><span class="co"># 1,1 - Optimal (k=1, h) and Epanechnikov (h=1)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="va">z</span>,</span>
-<span>  y <span class="op">=</span> <span class="va">K_opt</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span>,</span>
+<span>  <span class="co"># y = K_opt[, 1],</span></span>
 <span>  xlab <span class="op">=</span> <span class="st">"z"</span>,</span>
 <span>  ylab <span class="op">=</span> <span class="st">"Probability"</span>,</span>
 <span>  ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
@@ -272,6 +392,7 @@ which were recently developed for modeling count data distributions.</p>
 <span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>,</span>
 <span>  cex <span class="op">=</span> <span class="fl">1.2</span></span>
 <span><span class="op">)</span></span>
+<span></span>
 <span></span>
 <span></span>
 <span><span class="co"># Triangular (a=1, h) and Epanechnikov (h=1)</span></span>
@@ -479,6 +600,31 @@ which were recently developed for modeling count data distributions.</p>
 <span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>,</span>
 <span>  cex <span class="op">=</span> <span class="fl">1.2</span></span>
 <span><span class="op">)</span></span></code></pre></div>
+<p><img src="graph_kernels_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-chu2017" class="csl-entry">
+Chu, C-Y, D J Henderson, and C F Parmeter. 2017. <span>“On Discrete
+Epanechnikov Kernel Functions.”</span> <em>Computational Statistics
+&amp; Data Analysis</em> 116: 79–105. <a href="https://doi.org/10.1016/j.csda.2017.07.003" class="external-link">https://doi.org/10.1016/j.csda.2017.07.003</a>.
+</div>
+<div id="ref-KokonZocSenga2007" class="csl-entry">
+Kokonendji, CC, T Senga Kiessé, and S S Zocchi. 2007. <span>“Discrete
+Triangular Distributions and Non-Parametric Estimation for Probability
+Mass Function.”</span> <em>Journal of Nonparametric Statistics</em> 19
+(6-8): 241–54. <a href="https://doi.org/10.1080/10485250701733747" class="external-link">https://doi.org/10.1080/10485250701733747</a>.
+</div>
+<div id="ref-SengaDurrieu2024" class="csl-entry">
+Senga Kiessé, Tristan, and Gilles Durrieu. 2024. <span>“On a Discrete
+Symmetric Optimal Associated Kernel for Estimating Count Data
+Distributions.”</span> <em>Statistics &amp; Probability Letters</em>
+208: 110078. <a href="https://doi.org/10.1016/j.spl.2024.110078" class="external-link">https://doi.org/10.1016/j.spl.2024.110078</a>.
+</div>
+<div id="ref-Wansouwe2016" class="csl-entry">
+Wansouwé, Wanbitching E., Sobom M. Somé, and Célestin C. Kokonendji.
+2016. <span>“<span class="nocase">Ake: An R Package for Discrete and
+Continuous Associated Kernel Estimations</span>.”</span> <em><span>The R
+Journal</span></em> 8 (2): 258–76. <a href="https://doi.org/10.32614/RJ-2016-045" class="external-link">https://doi.org/10.32614/RJ-2016-045</a>.
+</div>
 </div>
 </div>
   </div>
