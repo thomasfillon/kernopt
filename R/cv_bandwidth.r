@@ -33,36 +33,39 @@ cv_bandwidth <- function(kernel = c("optimal", "triang", "epanech", "binomial"),
   b <- matrix(0, n2, n2)
 
   for (l in seq_along(h)) {
-    tryCatch({
-      for (j in 1:n1) {
-        a[j, 1:n2] <- discrete_kernel(
-          kernel = kernel,
-          x = x[j],
-          z = v,
-          h = h[l],
-          k = k
-        )
-      }
+    tryCatch(
+      {
+        for (j in 1:n1) {
+          a[j, 1:n2] <- discrete_kernel(
+            kernel = kernel,
+            x = x[j],
+            z = v,
+            h = h[l],
+            k = k
+          )
+        }
 
-      for (j in 1:n2) {
-        b[j, 1:n2] <- discrete_kernel(
-          kernel = kernel,
-          x = v[j],
-          z = v,
-          h = h[l],
-          k = k
-        )
-      }
+        for (j in 1:n2) {
+          b[j, 1:n2] <- discrete_kernel(
+            kernel = kernel,
+            x = v[j],
+            z = v,
+            h = h[l],
+            k = k
+          )
+        }
 
-      res1 <- apply(a, 1, mean)
-      diag(b) <- 0
-      res2 <- apply(b, 1, sum)
-      cv1[l] <- sum(res1^2)
-      cv2[l] <- (2 / ((n2 - 1) * n2)) * sum(res2)
-    }, error = function(err) {
-      cv1[l] <- NaN
-      cv2[l] <- NaN
-    })
+        res1 <- apply(a, 1, mean)
+        diag(b) <- 0
+        res2 <- apply(b, 1, sum)
+        cv1[l] <- sum(res1^2)
+        cv2[l] <- (2 / ((n2 - 1) * n2)) * sum(res2)
+      },
+      error = function(err) {
+        cv1[l] <- NaN
+        cv2[l] <- NaN
+      }
+    )
   }
 
   cv <- cv1 - cv2

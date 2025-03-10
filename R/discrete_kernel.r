@@ -22,8 +22,7 @@ discrete_kernel <- function(kernel = c("optimal", "triang", "epanech"),
                             z,
                             h,
                             k = NULL) {
-  switch(
-    kernel,
+  switch(kernel,
     "optimal" = discrete_optimal(
       x = x,
       z = z,

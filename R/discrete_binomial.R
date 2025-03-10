@@ -15,6 +15,6 @@
 #' discrete_binomial(x = 50, z = 1:100, h = 0.1)
 discrete_binomial <- function(x, z, h) {
   stopifnot((h >= 0), (h < 1))
-  K = stats::dbinom(z, x + 1, (x + h) / (x + 1))
-  return (K)
+  K <- stats::dbinom(z, x + 1, (x + h) / (x + 1))
+  return(K)
 }
