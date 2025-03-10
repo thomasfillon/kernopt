@@ -5,11 +5,16 @@
 \title{\code{cv_bandwidth} function is a Cross-Validation function for bandwidth
 parameter selection of discrete kernel}
 \usage{
-cv_bandwidth(kernel = c("optimal", "triang", "epanech"), v, h, k = NULL)
+cv_bandwidth(
+  kernel = c("optimal", "triang", "epanech", "binomial"),
+  v,
+  h,
+  k = NULL
+)
 }
 \arguments{
 \item{kernel}{the type of kernel. Currently supported kernels are limited to:
-"optimal", "triang" and "epanech"}
+"optimal", "triang", "epanech" and "binomial"}
 
 \item{v}{the vector of observations}
 
@@ -27,11 +32,11 @@ the optimal bandwidth value
 parameter selection of discrete kernel
 }
 \examples{
-n = 250
-mu = 2 # Mean
-y = sort(rpois(n, mu))
+n <- 250
+mu <- 2 # Mean
+y <- sort(rpois(n, mu))
 # kernel support parameter
-k = 1
-H = seq((max(y) - min(y)) / 200, (max(y) - min(y)) / 2, length.out = 50)
-hcv = cv_bandwidth(kernel="optimal",y,h=H,k=k)
+k <- 1
+H <- seq((max(y) - min(y)) / 200, (max(y) - min(y)) / 2, length.out = 50)
+hcv <- cv_bandwidth(kernel = "optimal", y, h = H, k = k)
 }

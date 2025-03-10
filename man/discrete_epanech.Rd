@@ -21,7 +21,7 @@ target x and the bandwidth h.
 Discrete Epanechnikov kernel
 }
 \examples{
-# basic usage of discrete_epanech to compute a discrete Epanechnikov kernel
+# Basic usage of discrete_epanech() to compute a discrete Epanechnikov kernel
 discrete_epanech(x = 50, z = 1:100, h = 10)
 
 }

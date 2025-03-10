@@ -4,11 +4,17 @@
 \alias{estim_kernel}
 \title{Estimator for discrete optimal kernel}
 \usage{
-estim_kernel(kernel = c("optimal", "triang", "epanech"), x, h, v, k = NULL)
+estim_kernel(
+  kernel = c("optimal", "triang", "epanech", "binomial"),
+  x,
+  h,
+  v,
+  k = NULL
+)
 }
 \arguments{
 \item{kernel}{the type of kernel. Currently supported kernels are limited to:
-"optimal", "triang" and "epanech"}
+"optimal", "triang", "epanech" and "binomial"}
 
 \item{x}{the list of target points at which the density is calculated  TODO : à valider}
 
@@ -27,16 +33,16 @@ The estimated kernel
 Estimator for discrete optimal kernel
 }
 \examples{
-n = 250
-mu = 2 # Mean
-x = 0:10   # Quantile value
-y = sort(rpois(n, mu))
+n <- 250
+mu <- 2 # Mean
+x <- 0:10 # Quantile value
+y <- sort(rpois(n, mu))
 # kernel parameters
-kernel = "optimal"
-k = 1
+kernel <- "optimal"
+k <- 1
 # Cross Validation
-H = seq((max(y) - min(y)) / 200, (max(y) - min(y)) / 2, length.out = 50)
-hcv = cv_bandwidth(kernel=kernel,y,h=H,k=k)
+H <- seq((max(y) - min(y)) / 200, (max(y) - min(y)) / 2, length.out = 50)
+hcv <- cv_bandwidth(kernel = kernel, y, h = H, k = k)
 # Kernel estimation
-fn_opt_k <- estim_kernel(kernel=kernel, x=y, h=hcv, v=x, k=k)
+fn_opt_k <- estim_kernel(kernel = kernel, x = y, h = hcv, v = x, k = k)
 }

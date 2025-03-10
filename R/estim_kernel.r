@@ -1,7 +1,7 @@
 #' Estimator for discrete optimal kernel
 #'
 #' @param kernel the type of kernel. Currently supported kernels are limited to:
-#'   "optimal", "triang" and "epanech"
+#'   "optimal", "triang", "epanech" and "binomial"
 #' @param x the list of target points at which the density is calculated  TODO : à valider
 #' @param h the bandwidth (or smoothing parameter)
 #' @param v the vector of observations TODO : Renommer "z" ???
@@ -25,13 +25,24 @@
 #' hcv <- cv_bandwidth(kernel = kernel, y, h = H, k = k)
 #' # Kernel estimation
 #' fn_opt_k <- estim_kernel(kernel = kernel, x = y, h = hcv, v = x, k = k)
-estim_kernel <- function(kernel = c("optimal", "triang", "epanech"), x, h, v, k = NULL) {
+estim_kernel <- function(kernel = c("optimal", "triang", "epanech", "binomial"),
+                         x,
+                         h,
+                         v,
+                         k = NULL) {
   kernel_opt <- 0 # kernel function initialized at 0
   n <- length(v)
   w <- rep(0, length(x)) # non normalized vector of estimations
 
-  for (i in seq_along(x)) { # loop at each target point x
-    kernel_opt <- discrete_kernel(kernel = kernel, x = x[i], z = v, h = h, k = k)
+  for (i in seq_along(x)) {
+    # loop at each target point x
+    kernel_opt <- discrete_kernel(
+      kernel = kernel,
+      x = x[i],
+      z = v,
+      h = h,
+      k = k
+    )
     w[i] <- (1 / n) * sum(kernel_opt)
   }
 
