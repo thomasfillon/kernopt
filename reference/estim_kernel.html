@@ -32,6 +32,9 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/applications_simulated_data.html">Application on Simulated Data</a>
+    </li>
+    <li>
       <a href="../articles/applications.html">applications</a>
     </li>
     <li>
@@ -60,7 +63,13 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">estim_kernel</span><span class="op">(</span>kernel <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"optimal"</span>, <span class="st">"triang"</span>, <span class="st">"epanech"</span><span class="op">)</span>, <span class="va">x</span>, <span class="va">h</span>, <span class="va">v</span>, k <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">estim_kernel</span><span class="op">(</span></span>
+<span>  kernel <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"optimal"</span>, <span class="st">"triang"</span>, <span class="st">"epanech"</span>, <span class="st">"binomial"</span><span class="op">)</span>,</span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">h</span>,</span>
+<span>  <span class="va">v</span>,</span>
+<span>  k <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -69,7 +78,7 @@
 
 <dl><dt id="arg-kernel">kernel<a class="anchor" aria-label="anchor" href="#arg-kernel"></a></dt>
 <dd><p>the type of kernel. Currently supported kernels are limited to:
-"optimal", "triang" and "epanech"</p></dd>
+"optimal", "triang", "epanech" and "binomial"</p></dd>
 
 
 <dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
@@ -97,18 +106,18 @@ kernel). It is only used for optimal and triangular kernel</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">n</span> <span class="op">=</span> <span class="fl">250</span></span></span>
-<span class="r-in"><span><span class="va">mu</span> <span class="op">=</span> <span class="fl">2</span> <span class="co"># Mean</span></span></span>
-<span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span>   <span class="co"># Quantile value</span></span></span>
-<span class="r-in"><span><span class="va">y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html" class="external-link">rpois</a></span><span class="op">(</span><span class="va">n</span>, <span class="va">mu</span><span class="op">)</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">250</span></span></span>
+<span class="r-in"><span><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="co"># Mean</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span> <span class="co"># Quantile value</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html" class="external-link">rpois</a></span><span class="op">(</span><span class="va">n</span>, <span class="va">mu</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># kernel parameters</span></span></span>
-<span class="r-in"><span><span class="va">kernel</span> <span class="op">=</span> <span class="st">"optimal"</span></span></span>
-<span class="r-in"><span><span class="va">k</span> <span class="op">=</span> <span class="fl">1</span></span></span>
+<span class="r-in"><span><span class="va">kernel</span> <span class="op">&lt;-</span> <span class="st">"optimal"</span></span></span>
+<span class="r-in"><span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">1</span></span></span>
 <span class="r-in"><span><span class="co"># Cross Validation</span></span></span>
-<span class="r-in"><span><span class="va">H</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fl">200</span>, <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span>, length.out <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">hcv</span> <span class="op">=</span> <span class="fu"><a href="cv_bandwidth.html">cv_bandwidth</a></span><span class="op">(</span>kernel<span class="op">=</span><span class="va">kernel</span>,<span class="va">y</span>,h<span class="op">=</span><span class="va">H</span>,k<span class="op">=</span><span class="va">k</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">H</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fl">200</span>, <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span>, length.out <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">hcv</span> <span class="op">&lt;-</span> <span class="fu"><a href="cv_bandwidth.html">cv_bandwidth</a></span><span class="op">(</span>kernel <span class="op">=</span> <span class="va">kernel</span>, <span class="va">y</span>, h <span class="op">=</span> <span class="va">H</span>, k <span class="op">=</span> <span class="va">k</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># Kernel estimation</span></span></span>
-<span class="r-in"><span><span class="va">fn_opt_k</span> <span class="op">&lt;-</span> <span class="fu">estim_kernel</span><span class="op">(</span>kernel<span class="op">=</span><span class="va">kernel</span>, x<span class="op">=</span><span class="va">y</span>, h<span class="op">=</span><span class="va">hcv</span>, v<span class="op">=</span><span class="va">x</span>, k<span class="op">=</span><span class="va">k</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">fn_opt_k</span> <span class="op">&lt;-</span> <span class="fu">estim_kernel</span><span class="op">(</span>kernel <span class="op">=</span> <span class="va">kernel</span>, x <span class="op">=</span> <span class="va">y</span>, h <span class="op">=</span> <span class="va">hcv</span>, v <span class="op">=</span> <span class="va">x</span>, k <span class="op">=</span> <span class="va">k</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </div>
