@@ -1,0 +1,113 @@
+---
+title: "Applications on real dataset"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Applications on real dataset}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(kernopt)
+```
+
+SIMTAP project aimed to develop sustainable aquaculture production production system that, in particular, contributes to reduce fish feed inputs and resources consumption.  
+We used data from an experiment in which gilthead seabream (*sparus aurata*) were stocked in 1.6 m$^{3}$ tanks at a density of 1.5 kg$\cdot$m$^{-3}$. Fish were reared for 46 days in a single recirculating aquaculture system composed of three rearing tanks. 
+At the beginning of the experiment, a number $n=200$ of the fish were individually weighed (dg), and their length at the caudal fork (mm) was measured. 
+
+The nonparametric kernel estimator was applied to provide smoothed count distributions of weight and length of fish measured. The performance of the nonparametric kernel estimator for modeling the empirical frequencies $f_{0}$ was evaluated by using Integrated Squared Error (ISE) given by
+$$ISE(h_{cv})=\sum_{x\in\mathbb{N}}(\widehat{f}_{K,h_{cv}}(x) - f_{0}(x))^{2}. $$ 
+
+
+```{r, fig.cap='Estimates (gray lines) of count distributions of weight (dg) (black lines) of fish by using optimal and Epanechnikov discrete kernels with bandwidth parameter ($h_{cv}$) from the cross-validation procedure. Integrated Squared Error (ISE) was also calculated.'}
+#Data
+data("fish_data", package = "kernopt")
+y <- fish_data$weight
+data1 = as.data.frame(table(y))
+x = as.numeric(as.character(data1[, 1]))
+freq_weight = as.numeric(as.character(data1[, 2]))
+f0 = freq_weight / sum(freq_weight)
+
+#Optimal kernel
+H = seq((max(y) - min(y)) / 200, (max(y) - min(y)) / 2, length.out = 50)
+k <- 1
+hcv_opt_k1 <- cv_bandwidth(kernel = "optimal", y, H, k = 1)
+fn_opt_k1 <- estim_kernel(kernel = "optimal", x, hcv_opt_k1, y, k = 1)
+ISE_opt_k1 <- sum((fn_opt_k1 - f0)^2)
+
+#Epanechnikov
+H = seq(2, 10, 1)
+hcv_epanech <- cv_bandwidth(kernel = "epanech", y, H)
+fn_epanech <- estim_kernel(kernel = "epanech", x, hcv_epanech, y, k = NULL)
+ISE_epanech <- sum((fn_epanech - f0)^2)
+
+#Graph
+par(mfrow = c(1, 2))
+plot(
+  x,
+  f0,
+  col = "black",
+  axes = F,
+  lwd = 3,
+  ylab = "Probability",
+  xlab = "Weight (dg)",
+  ylim = c(0, 0.06),
+  xlim = c(41, 132),
+  type = "h",
+  main = "(a) Optimal k=1 - ISE=0.002, (hcv=0.94)",
+  cex.axis = 1.70,
+  cex.lab = 1.70
+)
+axis(1,
+     at = x,
+     cex.axis = 1.70,
+     cex.lab = 1.70)
+axis(2)
+box()
+points(
+  x + 0.4,
+  fn_opt_k1,
+  lwd = 3,
+  col = "grey",
+  lty = 1,
+  type = "h"
+)
+plot(
+  x,
+  f0,
+  col = "black",
+  axes = F,
+  lwd = 3,
+  ylab = "Probability",
+  xlab = "Weight (dg)",
+  ylim = c(0, 0.06),
+  xlim = c(41, 132),
+  type = "h",
+  main = "(b) Epanechnikov - ISE=0.0033  (hcv=9)",
+  cex.axis = 1.70,
+  cex.lab = 1.70
+)
+axis(1,
+     at = x,
+     cex.axis = 1.70,
+     cex.lab = 1.70)
+axis(2)
+box()
+points(
+  x + 0.4,
+  fn_epanech,
+  lwd = 3,
+  col = "grey",
+  lty = 1,
+  type = "h"
+)
+```
+
+We thank the SIMTAP project (*Self-sufficient Integrated Multi-Trophic AquaPonic systems*, <https://www.simtap.eu>) supported by the PRIMA program (Partnership for Research and Innovation in the Mediterranean Area) under grand (18110-2) for providing the dataset.
