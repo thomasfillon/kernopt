@@ -50,25 +50,18 @@ pak::pak("thomasfillon/kernopt")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows how to use the *kernopt* library to compute the discrete optimal kernel values for some parameters:
 
 ```{r example}
 library(kernopt)
-## basic example code
-```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r discrete_optimal}
+## Compute the discrete optimal kernel values
 k_opt <- discrete_optimal(x = 25, z = 1:50, h = 0.9, k = 20)
+print(k_opt)
 ```
 
+The documentation is available at <https://thomasfillon.github.io/kernopt>.
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
 
 
 ## References
