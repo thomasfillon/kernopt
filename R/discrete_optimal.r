@@ -13,7 +13,7 @@
 #' @export
 #'
 #' @examples
-#' discrete_optimal(x = 50, z = 1:100, h = 0.6, k = 10)
+#' discrete_optimal(x = 25, z = 1:50, h = 0.9, k = 20)
 #'
 discrete_optimal <- function(x, z, h, k) {
   # Return an error if h does not match the following condition:
