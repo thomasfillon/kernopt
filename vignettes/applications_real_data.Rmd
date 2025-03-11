@@ -1,8 +1,8 @@
 ---
-title: "Applications on real dataset"
+title: "Applications on Real Data"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Applications on real dataset}
+  %\VignetteIndexEntry{Applications on Real Data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
