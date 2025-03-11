@@ -42,7 +42,7 @@ count_f0 <- weights_counts$Freq / sum(weights_counts$Freq)
 # ISE_bino<-sum((fn_bino - f0)^2)
 
 # discrete opt
-H <- seq((max(fish_weights) - min(fish_weights)) / 200, (max(fish_weights) - min(fish_weights)) / 2, length.out = 100)
+H <- seq((max(fish_weights) - min(fish_weights)) / 500, (max(fish_weights) - min(fish_weights)) / 2, length.out = 200)
 
 for (i in 1:nrow(target_data)) {
   result <- target_data[i, ]
