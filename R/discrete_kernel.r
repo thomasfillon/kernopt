@@ -15,7 +15,7 @@
 #'
 #' @examples
 #' discrete_kernel(kernel = "optimal", x = 25, z = 1:50, h = 0.9, k = 20)
-#' discrete_kernel(kernel = "triang", x = 25, z = 1:50, h = 10, a = 20)
+#' discrete_kernel(kernel = "triang", x = 25, z = 1:50, h = 10, k = 20)
 #' discrete_kernel(kernel = "epanech", x = 25, z = 1:50, h = 20)
 #' discrete_kernel(kernel = "binomial", x = 25, z = 1:50, h = 0.5)
 discrete_kernel <- function(kernel = c("optimal", "triang", "epanech", "binomial"),
