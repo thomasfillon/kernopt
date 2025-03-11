@@ -92,27 +92,17 @@ target x and the bandwidth h.</p>
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Basic usage of discrete_binomial() to compute a Discrete Binomial Kernel</span></span></span>
-<span class="r-in"><span><span class="fu">discrete_binomial</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">50</span>, z <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span>, h <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1.080076e-86 1.503106e-83 1.366657e-80 9.129271e-78 4.777043e-75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [6] 2.038736e-72 7.295762e-70 2.233719e-67 5.940866e-65 1.388974e-62</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [11] 2.881912e-60 5.347547e-58 8.930403e-56 1.349341e-53 1.852796e-51</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [16] 2.320627e-49 2.659620e-47 2.796541e-45 2.703814e-43 2.408197e-41</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [21] 1.978926e-39 1.502185e-37 1.054360e-35 6.847480e-34 4.116705e-32</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [26] 2.291632e-30 1.181181e-28 5.635920e-27 2.488227e-25 1.015749e-23</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] 3.830358e-22 1.332645e-20 4.271196e-19 1.258747e-17 3.403411e-16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [36] 8.420291e-15 1.900255e-13 3.897189e-12 7.231451e-11 1.207652e-09</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [41] 1.803624e-08 2.390517e-07 2.785231e-06 2.818991e-05 2.441037e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] 1.772405e-03 1.049616e-02 4.869052e-02 1.659452e-01 3.695047e-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [51] 4.033156e-01 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [56] 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [66] 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [71] 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [76] 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [81] 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [86] 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [96] 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
+<span class="r-in"><span><span class="fu">discrete_binomial</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">25</span>, z <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">50</span>, h <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 3.209642e-42 2.046147e-39 8.348279e-37 2.448133e-34 5.493610e-32</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] 9.806094e-30 1.428888e-27 1.730741e-25 1.765355e-23 1.530563e-21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] 1.135400e-19 7.238172e-18 3.975427e-16 1.882648e-14 7.681206e-13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] 2.693223e-11 8.079668e-10 2.060315e-08 4.424256e-07 7.897298e-06</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] 1.150749e-04 1.333823e-03 1.183043e-02 7.541898e-02 3.077094e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26] 6.035839e-01 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [36] 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [41] 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [46] 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
 </code></pre></div>
     </div>
   </div>

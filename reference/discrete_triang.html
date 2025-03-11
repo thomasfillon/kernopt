@@ -95,25 +95,17 @@ to the target x and the bandwidth h.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># basic usage of discrete_triang to compute a Discrete triangular kernel</span></span></span>
-<span class="r-in"><span><span class="fu">discrete_triang</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">50</span>, z <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span>, h <span class="op">=</span> <span class="fl">10</span>, a <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [7] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [13] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [25] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] 0.00000000 0.00000000 0.07880351 0.09235235 0.09389037 0.09398056</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [49] 0.09398215 0.09398215 0.09398215 0.09398056 0.09389037 0.09235235</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] 0.07880351 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [67] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [79] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [85] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [97] 0.00000000 0.00000000 0.00000000 0.00000000</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Basic usage of discrete_triang() to compute a Discrete triangular kernel</span></span></span>
+<span class="r-in"><span><span class="fu">discrete_triang</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">25</span>, z <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">50</span>, h <span class="op">=</span> <span class="fl">10</span>, a <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 0.00000000 0.00000000 0.00000000 0.00000000 0.01013280 0.01659798</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] 0.02062695 0.02307282 0.02451486 0.02533755 0.02578975 0.02602797</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] 0.02614746 0.02620407 0.02622915 0.02623939 0.02624319 0.02624444</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] 0.02624479 0.02624487 0.02624488 0.02624488 0.02624488 0.02624488</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] 0.02624488 0.02624488 0.02624488 0.02624488 0.02624488 0.02624487</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] 0.02624479 0.02624444 0.02624319 0.02623939 0.02622915 0.02620407</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] 0.02614746 0.02602797 0.02578975 0.02533755 0.02451486 0.02307282</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [43] 0.02062695 0.01659798 0.01013280 0.00000000 0.00000000 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [49] 0.00000000 0.00000000</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
