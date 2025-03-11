@@ -16,7 +16,8 @@ coverage](https://codecov.io/gh/thomasfillon/kernopt/graph/badge.svg)](https://a
 
 **kernopt** is an R package that implements *Discrete Symmetric Optimal
 Kernel* for estimating count data distributions, as described by [Senga
-Kiessé and Durrieu (2024)](#1). The non parametric estimator using the
+Kiessé and Durrieu (2024)](#1). ([Senga Kiessé and Durrieu
+2024](#ref-SengaDurrieu2024)). The non parametric estimator using the
 discrete symmetric optimal kernel was illustrated on simulated data sets
 and a real-word data set included in the package, in comparison with two
 other discrete symmetric kernels the *triangular kernel* and the
@@ -79,3 +80,17 @@ You can also embed plots, for example:
 
 In that case, don’t forget to commit and push the resulting figure
 files, so they display on GitHub and CRAN.
+
+<div id="refs" class="references csl-bib-body hanging-indent"
+entry-spacing="0">
+
+<div id="ref-SengaDurrieu2024" class="csl-entry">
+
+Senga Kiessé, Tristan, and Gilles Durrieu. 2024. “On a Discrete
+Symmetric Optimal Associated Kernel for Estimating Count Data
+Distributions.” *Statistics & Probability Letters* 208: 110078.
+<https://doi.org/10.1016/j.spl.2024.110078>.
+
+</div>
+
+</div>

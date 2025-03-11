@@ -1,5 +1,7 @@
 ---
 output: github_document
+bibliography: vignettes/references.bib
+link-citations: TRUE
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -22,7 +24,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 ## kernopt: 
-**kernopt** is an R package that implements *Discrete Symmetric Optimal Kernel* for estimating count data distributions, as described by [Senga Kiessé and Durrieu (2024)](#1). 
+**kernopt** is an R package that implements *Discrete Symmetric Optimal Kernel* for estimating count data distributions, as described by [Senga Kiessé and Durrieu (2024)](#1). [@SengaDurrieu2024].
 The non parametric estimator using the discrete symmetric optimal kernel was illustrated on simulated data sets and a real-word data set included in the package, in comparison with two other discrete symmetric kernels the *triangular kernel* and the *Epanechnikov kernel*.
 
 ## Authors: 
