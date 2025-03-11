@@ -1,5 +1,5 @@
-#' `cv_bandwidth` function is a Cross-Validation function for bandwidth
-#' parameter selection of discrete kernel
+#' Cross-Validation function for bandwidth parameter selection of discrete
+#' kernel
 #'
 #' @param kernel the type of kernel. Currently supported kernels are limited to:
 #'   "optimal", "triang", "epanech" and "binomial"

@@ -2,8 +2,8 @@
 % Please edit documentation in R/cv_bandwidth.r
 \name{cv_bandwidth}
 \alias{cv_bandwidth}
-\title{\code{cv_bandwidth} function is a Cross-Validation function for bandwidth
-parameter selection of discrete kernel}
+\title{Cross-Validation function for bandwidth parameter selection of discrete
+kernel}
 \usage{
 cv_bandwidth(
   kernel = c("optimal", "triang", "epanech", "binomial"),
@@ -28,8 +28,8 @@ kernel). It is only used for optimal and triangular kernel}
 the optimal bandwidth value
 }
 \description{
-\code{cv_bandwidth} function is a Cross-Validation function for bandwidth
-parameter selection of discrete kernel
+Cross-Validation function for bandwidth parameter selection of discrete
+kernel
 }
 \examples{
 n <- 250
