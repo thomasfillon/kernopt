@@ -112,4 +112,5 @@ points(
 )
 ```
 
+### Acknowledgments
 We thank the SIMTAP project (*Self-sufficient Integrated Multi-Trophic AquaPonic systems*, <https://www.simtap.eu>) supported by the PRIMA program (Partnership for Research and Innovation in the Mediterranean Area) under grand (18110-2) for providing the dataset.
