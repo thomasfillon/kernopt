@@ -27,28 +27,28 @@ $$ISE(h_{cv})=\sum_{x\in\mathbb{N}}(\widehat{f}_{K,h_{cv}}(x) - f_{0}(x))^{2}. $
 
 
 ```{r, fig.cap='Estimates (gray lines) of count distributions of weight (dg) (black lines) of fish by using optimal and Epanechnikov discrete kernels with bandwidth parameter ($h_{cv}$) from the cross-validation procedure. Integrated Squared Error (ISE) was also calculated.'}
-#Data
+# Data
 data("fish_data", package = "kernopt")
 y <- fish_data$weight
-data1 = as.data.frame(table(y))
-x = as.numeric(as.character(data1[, 1]))
-freq_weight = as.numeric(as.character(data1[, 2]))
-f0 = freq_weight / sum(freq_weight)
+data1 <- as.data.frame(table(y))
+x <- as.numeric(as.character(data1[, 1]))
+freq_weight <- as.numeric(as.character(data1[, 2]))
+f0 <- freq_weight / sum(freq_weight)
 
-#Optimal kernel
-H = seq((max(y) - min(y)) / 200, (max(y) - min(y)) / 2, length.out = 50)
+# Optimal kernel
+H <- seq((max(y) - min(y)) / 200, (max(y) - min(y)) / 2, length.out = 50)
 k <- 1
 hcv_opt_k1 <- cv_bandwidth(kernel = "optimal", y, H, k = 1)
 fn_opt_k1 <- estim_kernel(kernel = "optimal", x, hcv_opt_k1, y, k = 1)
 ISE_opt_k1 <- sum((fn_opt_k1 - f0)^2)
 
-#Epanechnikov
-H = seq(2, 10, 1)
+# Epanechnikov
+H <- seq(2, 10, 1)
 hcv_epanech <- cv_bandwidth(kernel = "epanech", y, H)
 fn_epanech <- estim_kernel(kernel = "epanech", x, hcv_epanech, y, k = NULL)
 ISE_epanech <- sum((fn_epanech - f0)^2)
 
-#Graph
+# Graph
 par(mfrow = c(1, 2))
 plot(
   x,
@@ -66,9 +66,10 @@ plot(
   cex.lab = 1.70
 )
 axis(1,
-     at = x,
-     cex.axis = 1.70,
-     cex.lab = 1.70)
+  at = x,
+  cex.axis = 1.70,
+  cex.lab = 1.70
+)
 axis(2)
 box()
 points(
@@ -95,9 +96,10 @@ plot(
   cex.lab = 1.70
 )
 axis(1,
-     at = x,
-     cex.axis = 1.70,
-     cex.lab = 1.70)
+  at = x,
+  cex.axis = 1.70,
+  cex.lab = 1.70
+)
 axis(2)
 box()
 points(
