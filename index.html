@@ -76,12 +76,16 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-
-<p><!-- badges: start --> <a href="https://cran.r-project.org/package=kernopt" class="external-link"><img src="https://www.r-pkg.org/badges/version/kernopt" alt="CRAN status"></a> <a href="https://github.com/thomasfillon/kernopt/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/thomasfillon/kernopt/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://app.codecov.io/gh/thomasfillon/kernopt" class="external-link"><img src="https://codecov.io/gh/thomasfillon/kernopt/graph/badge.svg" alt="Codecov test coverage"></a> <!-- badges: end --></p>
 <div class="section level1">
-<div class="page-header"><h1 id="kernopt-a-r-package-for-estimating-count-data-distributions-with-a-discrete-symmetric-optimal-kernel">kernopt: A R Package for estimating count data distributions with a Discrete Symmetric Optimal Kernel<a class="anchor" aria-label="anchor" href="#kernopt-a-r-package-for-estimating-count-data-distributions-with-a-discrete-symmetric-optimal-kernel"></a>
+<div class="page-header"><h1 id="kernopt---a-r-package-for-estimating-count-data-distributions-with-a-discrete-symmetric-optimal-kernel">kernopt - A R Package for estimating count data distributions with a Discrete Symmetric Optimal Kernel<a class="anchor" aria-label="anchor" href="#kernopt---a-r-package-for-estimating-count-data-distributions-with-a-discrete-symmetric-optimal-kernel"></a>
 </h1></div>
+<!-- badges: start -->
+
+<div class="section level2">
+<h2 id="kernopt">kernopt:<a class="anchor" aria-label="anchor" href="#kernopt"></a>
+</h2>
 <p><strong>kernopt</strong> is an R package that implements <em>Discrete Symmetric Optimal Kernel</em> for estimating count data distributions, as described by <a href="#id_1">Senga Kiessé and Durrieu (2024)</a>. The non parametric estimator using the discrete symmetric optimal kernel was illustrated on simulated data sets and a real-word data set included in the package, in comparison with two other discrete symmetric kernels the <em>triangular kernel</em> and the <em>Epanechnikov kernel</em>.</p>
+</div>
 <div class="section level2">
 <h2 id="authors">Authors:<a class="anchor" aria-label="anchor" href="#authors"></a>
 </h2>
@@ -95,23 +99,41 @@
 </ul>
 </div>
 <div class="section level2">
-<h2 id="installation--work-in-progress-">Installation … WORK IN PROGRESS …<a class="anchor" aria-label="anchor" href="#installation--work-in-progress-"></a>
-</h2>
-<p>To get the current released version from CRAN:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># NOT AVAILABLE ON CRAN YET</span></span>
-<span><span class="co">#install.packages("kernopt")</span></span></code></pre></div>
-<p>To get the current development version from github:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># TODO</span></span></code></pre></div>
-</div>
-<div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
 <p><a id="1">[Senga Kiessé and Durrieu (2024)]</a> <em>Senga Kiessé T, Durrieu G</em> (2024). <strong>“On a discrete symmetric optimal associated kernel for estimating count data distributions.”</strong> Statistics &amp; Probability Letters, 208, p.110078. ISSN0167-7152. <a href="https://doi.org/10.1016/j.spl.2024.110078" class="external-link"><img src="https://zenodo.org/badge/DOI/10.1016/j.spl.2024.110078.svg" alt="DOI:10.1007/978-3-031-21438-7_60"></a></p>
 </div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install the development version of kernopt from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"thomasfillon/kernopt"</span><span class="op">)</span></span></code></pre></div>
 </div>
-
+<div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
+<p>This is a basic example which shows you how to solve a common problem:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://thomasfillon.github.io/kernopt/" class="external-link">kernopt</a></span><span class="op">)</span></span>
+<span><span class="co">## basic example code</span></span></code></pre></div>
+<p>What is special about using <code>README.Rmd</code> instead of just <code>README.md</code>? You can include R chunks like so:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span>
+<span><span class="co">#&gt;      speed           dist       </span></span>
+<span><span class="co">#&gt;  Min.   : 4.0   Min.   :  2.00  </span></span>
+<span><span class="co">#&gt;  1st Qu.:12.0   1st Qu.: 26.00  </span></span>
+<span><span class="co">#&gt;  Median :15.0   Median : 36.00  </span></span>
+<span><span class="co">#&gt;  Mean   :15.4   Mean   : 42.98  </span></span>
+<span><span class="co">#&gt;  3rd Qu.:19.0   3rd Qu.: 56.00  </span></span>
+<span><span class="co">#&gt;  Max.   :25.0   Max.   :120.00</span></span></code></pre></div>
+<p>You’ll still need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date. <code>devtools::build_readme()</code> is handy for this.</p>
+<p>You can also embed plots, for example:</p>
+<p><img src="reference/figures/README-pressure-1.png" width="100%"></p>
+<p>In that case, don’t forget to commit and push the resulting figure files, so they display on GitHub and CRAN.</p>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -140,7 +162,14 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/package=kernopt" class="external-link"><img src="https://www.r-pkg.org/badges/version/kernopt" alt="CRAN status"></a></li>
+<li><a href="https://github.com/thomasfillon/kernopt/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/thomasfillon/kernopt/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/thomasfillon/kernopt" class="external-link"><img src="https://codecov.io/gh/thomasfillon/kernopt/graph/badge.svg" alt="Codecov test coverage"></a></li>
+</ul>
+</div>
 
   </div>
 </div>
