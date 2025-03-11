@@ -4,14 +4,16 @@
 # Target values
 hcv_targets <- c(9, 42.30, 47.00, 47.00, 0.94, 0.94, 0.94, 0.19)
 ISE_targets <- c(0.0033, 0.0030, 0.0034, 0.0034, 0.0027, 0.0032, 0.0034, 0.0028)
-kernel_types <- c("epanech",
-                  "triang",
-                  "triang",
-                  "triang",
-                  "optimal",
-                  "optimal",
-                  "optimal",
-                  "binomial")
+kernel_types <- c(
+  "epanech",
+  "triang",
+  "triang",
+  "triang",
+  "optimal",
+  "optimal",
+  "optimal",
+  "binomial"
+)
 kernel_k <- c(0, 1, 2, 3, 1, 2, 3, 0)
 
 target_data <- data.frame(
@@ -59,8 +61,8 @@ for (i in 1:nrow(target_data)) {
   ISE_opt_k <- sum((fn_opt_k - count_f0)^2)
 
   # Get target values for (kernel, k)
-  hcv_target = result$hcv
-  ISE_target = result$ISE
+  hcv_target <- result$hcv
+  ISE_target <- result$ISE
   # Test
   testthat::expect_equal(
     hcv,

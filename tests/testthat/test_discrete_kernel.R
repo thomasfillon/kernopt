@@ -28,8 +28,7 @@ test_that("Kernel values match original function for triangular kernel", {
       z = 1:50,
       h = 0.9,
       k = 20
-    )
-    ,
+    ),
     discrete_triang(
       x = 25,
       z = 1:50,
