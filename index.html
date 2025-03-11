@@ -114,15 +114,23 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<p>This is a basic example which shows how to use the <em>kernopt</em> library to compute the discrete optimal kernel values for some parameters:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://thomasfillon.github.io/kernopt/" class="external-link">kernopt</a></span><span class="op">)</span></span>
-<span><span class="co">## basic example code</span></span></code></pre></div>
-<p>What is special about using <code>README.Rmd</code> instead of just <code>README.md</code>? You can include R chunks like so:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">k_opt</span> <span class="op">=</span> <span class="fu"><a href="reference/discrete_optimal.html">discrete_optimal</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">25</span>, z <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">50</span>, h <span class="op">=</span> <span class="fl">0.9</span>, k <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></code></pre></div>
-<p>You can also embed plots, for example:</p>
-<p><img src="reference/figures/README-pressure-1.png" width="100%"></p>
+<span></span>
+<span><span class="co">## Compute the discrete optimal kernel values</span></span>
+<span><span class="va">k_opt</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/discrete_optimal.html">discrete_optimal</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">25</span>, z <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">50</span>, h <span class="op">=</span> <span class="fl">0.9</span>, k <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">k_opt</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  [1] 0.00000000 0.00000000 0.00000000 0.00000000 0.01871809 0.01956892</span></span>
+<span><span class="co">#&gt;  [7] 0.02037611 0.02113967 0.02185959 0.02253589 0.02316855 0.02375758</span></span>
+<span><span class="co">#&gt; [13] 0.02430298 0.02480475 0.02526288 0.02567739 0.02604826 0.02637550</span></span>
+<span><span class="co">#&gt; [19] 0.02665910 0.02689908 0.02709542 0.02724813 0.02735721 0.02742266</span></span>
+<span><span class="co">#&gt; [25] 0.02744448 0.02742266 0.02735721 0.02724813 0.02709542 0.02689908</span></span>
+<span><span class="co">#&gt; [31] 0.02665910 0.02637550 0.02604826 0.02567739 0.02526288 0.02480475</span></span>
+<span><span class="co">#&gt; [37] 0.02430298 0.02375758 0.02316855 0.02253589 0.02185959 0.02113967</span></span>
+<span><span class="co">#&gt; [43] 0.02037611 0.01956892 0.01871809 0.00000000 0.00000000 0.00000000</span></span>
+<span><span class="co">#&gt; [49] 0.00000000 0.00000000</span></span></code></pre></div>
+<p>The documentation is available at <a href="https://thomasfillon.github.io/kernopt" class="external-link uri">https://thomasfillon.github.io/kernopt</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="references-1">References<a class="anchor" aria-label="anchor" href="#references-1"></a>
