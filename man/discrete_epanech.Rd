@@ -22,6 +22,6 @@ Discrete Epanechnikov kernel
 }
 \examples{
 # Basic usage of discrete_epanech() to compute a discrete Epanechnikov kernel
-discrete_epanech(x = 50, z = 1:100, h = 10)
+discrete_epanech(x = 25, z = 1:50, h = 20)
 
 }

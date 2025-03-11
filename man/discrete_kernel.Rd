@@ -4,7 +4,13 @@
 \alias{discrete_kernel}
 \title{Discrete kernel function}
 \usage{
-discrete_kernel(kernel = c("optimal", "triang", "epanech"), x, z, h, k = NULL)
+discrete_kernel(
+  kernel = c("optimal", "triang", "epanech", "binomial"),
+  x,
+  z,
+  h,
+  k = NULL
+)
 }
 \arguments{
 \item{kernel}{the type of kernel. Currently supported kernels are limited to:
@@ -27,11 +33,12 @@ Returns the value of the associated kernel function
 Discrete kernel function
 }
 \examples{
-#' discrete_kernel(kernel="optimal", x = 50, z = 1:100, h = 10, k = 5)
-discrete_kernel(kernel = "triang", x = 50, z = 1:100, h = 10, k = 5)
-discrete_kernel(kernel = "epanech", x = 50, z = 1:100, h = 10)
+discrete_kernel(kernel="optimal", x = 25, z = 1:50, h = 0.9, k = 20)
+discrete_kernel(kernel = "triang", x = 25, z = 1:50, h = 10, a = 20)
+discrete_kernel(kernel = "epanech", x = 25, z = 1:50, h = 20)
+discrete_kernel(kernel = "binomial", x = 25, z = 1:50, h = 0.5)
 }
 \seealso{
-\code{\link[=discrete_optimal]{discrete_optimal()}}, \code{\link[=discrete_triang]{discrete_triang()}}, [discrete_epanech(),
-\code{\link[=discrete_binomial]{discrete_binomial()}}]  which this function wraps.
+\code{\link[=discrete_optimal]{discrete_optimal()}}, \code{\link[=discrete_triang]{discrete_triang()}}, \code{\link[=discrete_epanech]{discrete_epanech()}},
+\code{\link[=discrete_binomial]{discrete_binomial()}}  which this function wraps.
 }

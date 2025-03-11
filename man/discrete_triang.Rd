@@ -24,7 +24,7 @@ to the target x and the bandwidth h.
 Discrete triangular kernel
 }
 \examples{
-# basic usage of discrete_triang to compute a Discrete triangular kernel
-discrete_triang(x = 50, z = 1:100, h = 10, a = 5)
+# Basic usage of discrete_triang() to compute a Discrete triangular kernel
+discrete_triang(x = 25, z = 1:50, h = 10, a = 20)
 
 }

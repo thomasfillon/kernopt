@@ -25,6 +25,6 @@ the target x and the bandwidth h.
 Discrete optimal kernel
 }
 \examples{
-discrete_optimal(x = 50, z = 1:100, h = 0.6, k = 10)
+discrete_optimal(x = 25, z = 1:50, h = 0.9, k = 20)
 
 }

@@ -59,8 +59,5 @@ test_that("Kernel values are correct", {
     ),
     tolerance = 1e-6
   )
-  expect_equal(
-    discrete_triang(5, 1:10, 3, 0),
-    c(0, 0, 0, 0, 1, 0, 0, 0, 0, 0)
-  )
+  expect_equal(discrete_triang(5, 1:10, 3, 0), c(0, 0, 0, 0, 1, 0, 0, 0, 0, 0))
 })

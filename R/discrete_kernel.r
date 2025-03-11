@@ -9,20 +9,22 @@
 #'   of the kernel function (corresponds to parameter 'a' for triangular
 #'   kernel). It is only used for optimal and triangular kernel
 #' @return Returns the value of the associated kernel function
-#' @seealso [discrete_optimal()], [discrete_triang()], [discrete_epanech(),
-#'   [discrete_binomial()]]  which this function wraps.
+#' @seealso [discrete_optimal()], [discrete_triang()], [discrete_epanech()],
+#'   [discrete_binomial()]  which this function wraps.
 #' @export
 #'
 #' @examples
-#' discrete_kernel(kernel="optimal", x = 50, z = 1:100, h = 10, k = 5)
-#' discrete_kernel(kernel = "triang", x = 50, z = 1:100, h = 10, k = 5)
-#' discrete_kernel(kernel = "epanech", x = 50, z = 1:100, h = 10)
-discrete_kernel <- function(kernel = c("optimal", "triang", "epanech"),
+#' discrete_kernel(kernel="optimal", x = 25, z = 1:50, h = 0.9, k = 20)
+#' discrete_kernel(kernel = "triang", x = 25, z = 1:50, h = 10, a = 20)
+#' discrete_kernel(kernel = "epanech", x = 25, z = 1:50, h = 20)
+#' discrete_kernel(kernel = "binomial", x = 25, z = 1:50, h = 0.5)
+discrete_kernel <- function(kernel = c("optimal", "triang", "epanech", "binomial"),
                             x,
                             z,
                             h,
                             k = NULL) {
-  switch(kernel,
+  switch(
+    kernel,
     "optimal" = discrete_optimal(
       x = x,
       z = z,
