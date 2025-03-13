@@ -2,7 +2,7 @@
 % Please edit documentation in R/estim_kernel.r
 \name{estim_kernel}
 \alias{estim_kernel}
-\title{Estimator for discrete optimal kernel}
+\title{Discrete Kernel Density Estimator}
 \usage{
 estim_kernel(
   kernel = c("optimal", "triang", "epanech", "binomial"),
@@ -16,21 +16,21 @@ estim_kernel(
 \item{kernel}{the type of kernel. Currently supported kernels are limited to:
 "optimal", "triang", "epanech" and "binomial"}
 
-\item{x}{the list of target points at which the density is calculated  TODO : à valider}
+\item{x}{the list of target points at which the density is calculated}
 
 \item{h}{the bandwidth (or smoothing parameter)}
 
-\item{v}{the vector of observations TODO : Renommer "z" ???}
+\item{v}{the vector of observations}
 
 \item{k}{Optional: the integer (positive) parameter that defined the support
 of the kernel function (corresponds to parameter 'a' for triangular
 kernel). It is only used for optimal and triangular kernel}
 }
 \value{
-The estimated kernel
+The estimated discrete kernel density values
 }
 \description{
-Estimator for discrete optimal kernel
+Discrete Kernel Density Estimator
 }
 \examples{
 n <- 250
