@@ -63,7 +63,7 @@ print(k_opt)
 ```
 
 The documentation is available at
-<https://thomasfillon.github.io/kernopt>.
+<https://thomasfillon.github.io/kernopt/>.
 
 ## References
 

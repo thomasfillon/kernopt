@@ -54,7 +54,7 @@ k_opt <- discrete_optimal(x = 25, z = 1:50, h = 0.9, k = 20)
 print(k_opt)
 ```
 
-The documentation is available at <https://thomasfillon.github.io/kernopt>.
+The documentation is available at <https://thomasfillon.github.io/kernopt/>.
 
 
 
