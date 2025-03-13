@@ -1,15 +1,15 @@
-#' Estimator for discrete optimal kernel
+#' Discrete Kernel Density Estimator
 #'
 #' @param kernel the type of kernel. Currently supported kernels are limited to:
 #'   "optimal", "triang", "epanech" and "binomial"
-#' @param x the list of target points at which the density is calculated  TODO : à valider
+#' @param x the list of target points at which the density is calculated
 #' @param h the bandwidth (or smoothing parameter)
-#' @param v the vector of observations TODO : Renommer "z" ???
+#' @param v the vector of observations
 #' @param k Optional: the integer (positive) parameter that defined the support
 #'   of the kernel function (corresponds to parameter 'a' for triangular
 #'   kernel). It is only used for optimal and triangular kernel
 #'
-#' @return  The estimated kernel
+#' @return  The estimated discrete kernel density values
 #' @export
 #'
 #' @examples
