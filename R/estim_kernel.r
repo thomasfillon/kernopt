@@ -24,7 +24,7 @@
 #' H <- seq((max(y) - min(y)) / 200, (max(y) - min(y)) / 2, length.out = 50)
 #' hcv <- cv_bandwidth(kernel = kernel, y, h = H, k = k)
 #' # Kernel estimation
-#' fn_opt_k <- estim_kernel(kernel = kernel, x=x, h = hcv, v = y, k = k)
+#' fn_opt_k <- estim_kernel(kernel = kernel, x = x, h = hcv, v = y, k = k)
 estim_kernel <- function(kernel = c("optimal", "triang", "epanech", "binomial"),
                          x,
                          h,
