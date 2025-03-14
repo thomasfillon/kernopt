@@ -10,3 +10,4 @@
 ^README\.Rmd$
 
 .git-credentials
+^CRAN-SUBMISSION$
