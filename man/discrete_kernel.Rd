@@ -14,7 +14,7 @@ discrete_kernel(
 }
 \arguments{
 \item{kernel}{the type of kernel. Currently supported kernels are limited to:
-"optimal", "triang" and "epanech"}
+"optimal", "triang", "epanech" and "binomial"}
 
 \item{x}{the target point at which the density is calculated}
 

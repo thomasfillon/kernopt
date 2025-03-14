@@ -1,7 +1,7 @@
 #' Discrete kernel function
 #'
 #' @param kernel the type of kernel. Currently supported kernels are limited to:
-#'   "optimal", "triang" and "epanech"
+#'   "optimal", "triang", "epanech" and "binomial"
 #' @param x the target point at which the density is calculated
 #' @param z the vector of observations
 #' @param h the bandwidth (or smoothing parameter)

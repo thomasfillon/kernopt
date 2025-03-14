@@ -15,8 +15,8 @@
 #' @examples
 #' n <- 250
 #' mu <- 2 # Mean
-#' x <- 0:10 # Quantile value
-#' y <- sort(rpois(n, mu))
+#' x <- 0:10 # target values
+#' y <- sort(rpois(n, mu)) # simulated Poisson observations
 #' # kernel parameters
 #' kernel <- "optimal"
 #' k <- 1
@@ -24,7 +24,7 @@
 #' H <- seq((max(y) - min(y)) / 200, (max(y) - min(y)) / 2, length.out = 50)
 #' hcv <- cv_bandwidth(kernel = kernel, y, h = H, k = k)
 #' # Kernel estimation
-#' fn_opt_k <- estim_kernel(kernel = kernel, x = y, h = hcv, v = x, k = k)
+#' fn_opt_k <- estim_kernel(kernel = kernel, x=x, h = hcv, v = y, k = k)
 estim_kernel <- function(kernel = c("optimal", "triang", "epanech", "binomial"),
                          x,
                          h,

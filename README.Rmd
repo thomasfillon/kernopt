@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# kernopt - A R Package for estimating count data distributions with a Discrete Symmetric Optimal Kernel
+# kernopt - A Package for estimating count data distributions with a Discrete Symmetric Optimal Kernel
 
 <!-- badges: start -->
  [![CRAN status](https://www.r-pkg.org/badges/version/kernopt)](https://cran.r-project.org/package=kernopt)
@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 
 ## kernopt: 
 **kernopt** is an R package that implements *Discrete Symmetric Optimal Kernel* for estimating count data distributions, as described by [@SengaDurrieu2024].
-The non parametric estimator using the discrete symmetric optimal kernel was illustrated on simulated data sets and a real-word data set included in the package, in comparison with two other discrete symmetric kernels the *triangular kernel* and the *Epanechnikov kernel* and with the discrete binomial kernel.
+The nonparametric estimator using the discrete symmetric optimal kernel was illustrated on simulated data sets and a real-word data set included in the package, in comparison with two other discrete symmetric kernels.
 
 ## Authors: 
 - *Tristan Senga Kiessé*, UMR SAS INRAE, Institut Agro

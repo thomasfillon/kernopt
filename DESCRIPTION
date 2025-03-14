@@ -21,7 +21,7 @@ Authors@R:
     person("Université de Bretagne Sud, CNRS - UMR 6205 LMBA", role = "cph")
     )
 Maintainer: Thomas Fillon <thomas.fillon@univ-ubs.fr>
-Description: kernopt is an package that implements the discrete symmetric optimal kernel for estimating count data distributions as proposed by T. Senga Kiessé and G. Durrieu (2024). The package provides a function to compute this optimal discrete symmetric kernel together with three other discrete associated kernels function: the Epanechnikov, the triangular and the binomial kernels. A generic discrete kernel function wraps together these four kernel functions. In addition to the choice of discrete kernel, the choice of the bandwidth parameter is challenging. The package propose a cross-validation method for selecting the smoothing bandwidth parameter to be used with the different discrete kernels. A discrete kernel density estimation fiinction with these kernels is also provide.
+Description: kernopt is a package that implements Discrete Symmetric Optimal Kernel for estimating count data distributions, as described by T. Senga Kiessé and G. Durrieu (2024).The nonparametric estimator using the discrete symmetric optimal kernel was illustrated on simulated data sets and a real-word data set included in the package, in comparison with two other discrete symmetric kernels.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

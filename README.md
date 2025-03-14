@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# kernopt - A R Package for estimating count data distributions with a Discrete Symmetric Optimal Kernel
+# kernopt - A Package for estimating count data distributions with a Discrete Symmetric Optimal Kernel
 
 <!-- badges: start -->
 
@@ -16,12 +16,10 @@ coverage](https://codecov.io/gh/thomasfillon/kernopt/graph/badge.svg)](https://a
 
 **kernopt** is an R package that implements *Discrete Symmetric Optimal
 Kernel* for estimating count data distributions, as described by ([Senga
-Kiessé and Durrieu 2024](#ref-SengaDurrieu2024)). The non parametric
+Kiessé and Durrieu 2024](#ref-SengaDurrieu2024)). The nonparametric
 estimator using the discrete symmetric optimal kernel was illustrated on
 simulated data sets and a real-word data set included in the package, in
-comparison with two other discrete symmetric kernels the *triangular
-kernel* and the *Epanechnikov kernel* and with the discrete binomial
-kernel.
+comparison with two other discrete symmetric kernels.
 
 ## Authors:
 
