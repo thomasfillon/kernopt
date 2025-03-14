@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="A Package for Estimating Count Data Distributions with Discrete Optimal Symmetric Kernel">
-<meta property="og:description" content="kernopt is an package that implements the discrete symmetric optimal kernel for estimating count data distributions as proposed by T. Senga Kiessé and G. Durrieu (2024). The package provides a function to compute this optimal discrete symmetric kernel together with three other discrete associated kernels function: the Epanechnikov, the triangular and the binomial kernels. A generic discrete kernel function wraps together these four kernel functions. In addition to the choice of discrete kernel, the choice of the bandwidth parameter is challenging. The package propose a cross-validation method for selecting the smoothing bandwidth parameter to be used with the different discrete kernels. A discrete kernel density estimation fiinction with these kernels is also provide.">
+<meta property="og:description" content="kernopt is a package that implements Discrete Symmetric Optimal Kernel for estimating count data distributions, as described by T. Senga Kiessé and G. Durrieu (2024).The nonparametric estimator using the discrete symmetric optimal kernel was illustrated on simulated data sets and a real-word data set included in the package, in comparison with two other discrete symmetric kernels.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -84,14 +84,14 @@
       </header><div class="row">
   <div class="contents col-md-9">
 <div class="section level1">
-<div class="page-header"><h1 id="kernopt---a-r-package-for-estimating-count-data-distributions-with-a-discrete-symmetric-optimal-kernel">kernopt - A R Package for estimating count data distributions with a Discrete Symmetric Optimal Kernel<a class="anchor" aria-label="anchor" href="#kernopt---a-r-package-for-estimating-count-data-distributions-with-a-discrete-symmetric-optimal-kernel"></a>
+<div class="page-header"><h1 id="kernopt---a-package-for-estimating-count-data-distributions-with-a-discrete-symmetric-optimal-kernel">kernopt - A Package for estimating count data distributions with a Discrete Symmetric Optimal Kernel<a class="anchor" aria-label="anchor" href="#kernopt---a-package-for-estimating-count-data-distributions-with-a-discrete-symmetric-optimal-kernel"></a>
 </h1></div>
 <!-- badges: start -->
 
 <div class="section level2">
 <h2 id="kernopt">kernopt:<a class="anchor" aria-label="anchor" href="#kernopt"></a>
 </h2>
-<p><strong>kernopt</strong> is an R package that implements <em>Discrete Symmetric Optimal Kernel</em> for estimating count data distributions, as described by (<a href="#ref-SengaDurrieu2024">Senga Kiessé and Durrieu 2024</a>). The non parametric estimator using the discrete symmetric optimal kernel was illustrated on simulated data sets and a real-word data set included in the package, in comparison with two other discrete symmetric kernels the <em>triangular kernel</em> and the <em>Epanechnikov kernel</em> and with the discrete binomial kernel.</p>
+<p><strong>kernopt</strong> is an R package that implements <em>Discrete Symmetric Optimal Kernel</em> for estimating count data distributions, as described by (<a href="#ref-SengaDurrieu2024">Senga Kiessé and Durrieu 2024</a>). The nonparametric estimator using the discrete symmetric optimal kernel was illustrated on simulated data sets and a real-word data set included in the package, in comparison with two other discrete symmetric kernels.</p>
 </div>
 <div class="section level2">
 <h2 id="authors">Authors:<a class="anchor" aria-label="anchor" href="#authors"></a>
