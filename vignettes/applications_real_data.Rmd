@@ -49,7 +49,7 @@ fn_epanech <- estim_kernel(kernel = "epanech", x, hcv_epanech, y, k = NULL)
 ISE_epanech <- sum((fn_epanech - f0)^2)
 
 # Graph
-par(mfrow = c(1, 2))
+oldpar <- par(mfrow = c(1, 2))
 plot(
   x,
   f0,
@@ -110,6 +110,9 @@ points(
   lty = 1,
   type = "h"
 )
+
+# Restore option
+par(oldpar)
 ```
 
 ### Acknowledgments

@@ -180,7 +180,7 @@ legend(
 
 
 ```{r}
-par(mfrow = c(2, 2), mar = c(1, 1, 1, 1)) # 2 x 2 pictures on one plot
+oldpar <- par(mfrow = c(2, 2), mar = c(1, 1, 1, 1)) # 2 x 2 pictures on one plot
 # 1,1 - Optimal (k=1, h) and Epanechnikov (h=1)
 plot(
   x = z,
@@ -455,4 +455,7 @@ legend(
   lwd = c(2, 2, 2, 2),
   cex = 1.2
 )
+
+# Restore option
+par(oldpar)
 ```
