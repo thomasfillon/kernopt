@@ -30,7 +30,13 @@ comparison with two other discrete symmetric kernels.
 
 ## Installation
 
-You can install the development version of kernopt from
+Install the released version of `kernopt` from CRAN:
+
+``` r
+install.packages("kernopt")
+```
+
+Or you can install the development version of `kernopt` from
 [GitHub](https://github.com/) with:
 
 ``` r

@@ -34,8 +34,13 @@ The nonparametric estimator using the discrete symmetric optimal kernel was illu
 
 
 ## Installation
+Install the released version of `kernopt` from CRAN:
 
-You can install the development version of kernopt from [GitHub](https://github.com/) with:
+``` r
+install.packages("kernopt")
+```
+
+Or you can install the development version of `kernopt` from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
